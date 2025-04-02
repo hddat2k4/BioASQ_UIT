@@ -76,7 +76,7 @@ os.makedirs(baseline_folder, exist_ok=True)
 base_url = "https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/"
 
 # Cấu hình
-start_file = 1197
+start_file = 1
 end_file = 1274
 max_retries = 5  # số lần thử lại tối đa nếu lỗi
 retry_delay = 5  # giây nghỉ giữa các lần thử lại
