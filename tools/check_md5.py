@@ -1,72 +1,58 @@
+import hashlib
 import os
-import requests
-import time
-from tqdm import tqdm
-from concurrent.futures import ThreadPoolExecutor, as_completed
+# Hàm tính MD5 từ file
+def calculate_md5(file_path):
+    hash_md5 = hashlib.md5()
+    with open(file_path, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
 
-# Thư mục lưu file
-baseline_folder = "pubmed_baseline_2025"
-os.makedirs(baseline_folder, exist_ok=True)
+# Hàm đọc MD5 từ file .md5
+def read_md5_from_file(md5_file_path):
+    try:
+        with open(md5_file_path, "r") as f:
+            line = f.readline()
+            return line.split('=')[1].strip()  # Lấy phần mã MD5 phía trước
+    except:
+        return None
+pub_dir = "pubmed_baseline_2025"
+totalfile = 1274
 
-# Base URL
-base_url = "https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/"
+# Giả sử bạn vừa tải xong file pubmed25n1165.xml.gz
+xml_file = "pubmed25n1165.xml.gz"
+md5_file = "pubmed25n1165.xml.gz.md5"
+xml_path = os.path.join(pub_dir, xml_file)
+md5_path = os.path.join(pub_dir, md5_file)
 
-# Cấu hình
-start_file = 1
-end_file = 1274
-max_retries = 5  # số lần thử lại tối đa nếu lỗi
-retry_delay = 5  # giây nghỉ giữa các lần thử lại
-max_workers = 5  # số luồng tải đồng thời
 
-# Hàm tải 1 file với retry
-def download_file(i):
-    file_name = f"pubmed25n{i:04d}.xml.gz"
-    file_url = base_url + file_name
-    file_path = os.path.join(baseline_folder, file_name)
+lis = []
 
-    if os.path.exists(file_path):
-        print(f"{file_name} đã tồn tại, bỏ qua...")
-        return
+# Tính toán và kiểm tra
+def check_md5(i):
+    xml_file = f"pubmed25n{i:04d}.xml.gz"
+    md5_file = f"{xml_file}.md5"
+    xml_path = os.path.join(pub_dir, xml_file)
+    md5_path = os.path.join(pub_dir, md5_file)
+    computed = calculate_md5(xml_path)
+    expected = read_md5_from_file(md5_path)
+    if expected:
+        if computed == expected:
+            print(f"✅ MD5 khớp cho {xml_file}")
+        else:
+            print(f"❌ MD5 KHÔNG KHỚP cho {xml_file}")
+            print(f"Expected: {expected}")
+            print(f"Computed: {computed}")
+            lis.append(xml_file)
 
-    for attempt in range(1, max_retries + 1):
-        try:
-            print(f"Bắt đầu tải {file_name} (thử lần {attempt})")
-            response = requests.get(file_url, stream=True, timeout=(5, 30))
-            if response.status_code != 200:
-                print(f"Không tìm thấy file: {file_name}")
-                return
+    else:
+        print(f"⚠️ Không tìm thấy file MD5 cho {xml_file}")
 
-            total_size = int(response.headers.get('content-length', 0))
-            with open(file_path, "wb") as f, tqdm(
-                total=total_size,
-                desc=f"Tải {file_name}",
-                unit='B',
-                unit_scale=True,
-                unit_divisor=1024,
-                leave=False  # Không giữ thanh tiến trình sau khi xong
-            ) as bar:
-                last_chunk_time = time.time()
-                for chunk in response.iter_content(chunk_size=1024):
-                    if chunk:
-                        f.write(chunk)
-                        bar.update(len(chunk))
-                        last_chunk_time = time.time()
-                    elif time.time() - last_chunk_time > 10:
-                        raise Exception("Timeout khi chờ dữ liệu từ server.")
+# Kiểm tra từ file 1 đến file 1274
 
-            print(f"Tải thành công: {file_name}")
-            return
+for i in range(1, totalfile + 1):
+    check_md5(i)
 
-        except Exception as e:
-            print(f"Lỗi khi tải {file_name} (lần {attempt}): {e}")
-            if attempt < max_retries:
-                print(f"Chờ {retry_delay} giây trước khi thử lại...")
-                time.sleep(retry_delay)
-            else:
-                print(f"⛔️ Bỏ qua {file_name} sau {max_retries} lần thử.")
-
-# Tải file với ThreadPoolExecutor
-with ThreadPoolExecutor(max_workers=max_workers) as executor:
-    futures = [executor.submit(download_file, i) for i in range(start_file, end_file + 1)]
-    for future in as_completed(futures):
-        _ = future.result()  # đảm bảo bắt được lỗi nếu có
+with open("danh_sach_file.txt", "w", encoding="utf-8") as f:
+    for item in lis:
+        f.write(f"{item}\n")
