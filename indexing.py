@@ -2,11 +2,14 @@ import torch
 import os
 from tqdm import tqdm
 import json
+from nltk import tokenize
 from langchain_chroma import Chroma
 from sentence_transformers import SentenceTransformer
 from langchain_core.documents import Document
 from langchain.embeddings.base import Embeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+
 
 
 # Chia batch

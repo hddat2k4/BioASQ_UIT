@@ -2,7 +2,6 @@ from langchain_chroma import Chroma
 from sentence_transformers import SentenceTransformer
 from langchain.embeddings.base import Embeddings
 
-# wrapper như bạn đã làm
 class SentenceTransformerEmbeddings(Embeddings):
     def __init__(self, model):
         self.model = model
