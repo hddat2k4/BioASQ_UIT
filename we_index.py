@@ -1,102 +1,121 @@
-import torch, os, json, nltk, uuid
-from tqdm import tqdm
-from nltk.tokenize import sent_tokenize
-nltk.download('punkt')
 
-# --- Import thư viện cần thiết ---
+import os
+import pickle
+import uuid
+import time
+
+import hashlib
+
+def generate_hashed_uuid(vector, raw_uuid):
+    h = hashlib.md5()
+    h.update(str(vector).encode("utf-8"))
+    h.update(str(raw_uuid).encode("utf-8"))
+    return str(uuid.UUID(h.hexdigest()))
+
 import weaviate
-from langchain_core.documents import Document
-from langchain.embeddings.base import Embeddings
-from langchain.vectorstores import Weaviate  # Sử dụng vector store của Weaviate từ LangChain
-from sentence_transformers import SentenceTransformer
+from tqdm import tqdm
+import gc
+import subprocess
 
-# --- Khởi tạo embedding model ---
-class SentenceTransformerEmbeddings(Embeddings):
-    def __init__(self, model):
-        self.model = model
+# --- Thông tin cấu hình ---
+input_dir = "embeddings"
+container_name = "bioasq-weaviate-1"
+collection_name = "PubMedAbstract"
+SUB_BATCH_SIZE = 300
 
-    def embed_documents(self, texts):
-        return self.model.encode(texts, show_progress_bar=True, convert_to_numpy=True).tolist()
+# --- Hàm kiểm tra Weaviate đã sẵn sàng sau khi restart ---
+def wait_for_weaviate_ready(max_wait_seconds=120):
+    start_time = time.time()
+    while True:
+        try:
+            client = weaviate.connect_to_local()
+            if client.is_ready():
+                return client
+        except:
+            pass
 
-    def embed_query(self, text):
-        return self.model.encode(text, show_progress_bar=True, convert_to_numpy=True).tolist()
+        if time.time() - start_time > max_wait_seconds:
+            raise TimeoutError("❌ Weaviate không khởi động lại đúng thời gian.")
+        print("⏳ Chờ Weaviate khởi động lại...")
+        time.sleep(5)
 
-model_name = "BAAI/bge-small-en-v1.5"
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
-raw_model = SentenceTransformer(model_name, device=device)
-embeddings = SentenceTransformerEmbeddings(raw_model)
+# --- Bắt đầu tiến trình indexing ---
+client = weaviate.connect_to_local()
+collection = client.collections.get(collection_name)
 
-# --- Kết nối đến Weaviate vector store ---
-# Giả sử Weaviate đang chạy tại http://localhost:8080 (điều này phù hợp với cấu hình Docker của bạn)
-client = weaviate.Client("http://localhost:8080")
+for i in tqdm(range(941, 942), desc="Indexing files"):
 
-# --- Tùy chọn: Kiểm tra và tạo schema (class) nếu chưa tồn tại ---
-# Chúng ta định nghĩa một schema tên "Document" với các trường "page_content" và "metadata"
-schema = client.schema.get()
-if not any(cls["class"] == "Document" for cls in schema.get("classes", [])):
-    document_schema = {
-        "class": "Document",
-        "properties": [
-            {"name": "page_content", "dataType": ["text"]},
-            # Nếu muốn lưu metadata dưới dạng text (chuỗi JSON) thì cần thêm trường này,
-            # hoặc bạn có thể lưu các thuộc tính riêng biệt nếu muốn.
-            {"name": "metadata", "dataType": ["text"]},
-        ],
-        # "vectorizer": "none" có nghĩa là bạn sẽ cung cấp vector embeddings bên ngoài (không dùng vectorizer của Weaviate)
-        "vectorizer": "none"
-    }
-    client.schema.create_class(document_schema)
-    print("✅ Đã tạo schema 'Document' trong Weaviate.")
+    file = f"embeddings_{i:04d}.pkl.pkl"
+    path = os.path.join(input_dir, file)
 
-# --- Khởi tạo vector store sử dụng Weaviate ---
-# index_name ở đây chính là tên của class/schema ("Document")
-# text_key là trường chứa nội dung chính của tài liệu ("page_content")
-# embedding_function là hàm chuyển đổi text thành vector (ở đây sử dụng embeddings.embed_query)
-vector_store = Weaviate(
-    client,
-    index_name="Document",
-    text_key="page_content",
-    embedding_function=embeddings.embed_query
-)
+    if not os.path.exists(path):
+        print(f"❌ File không tồn tại: {file}")
+        continue
 
-# --- Tiền xử lý và indexing ---
-# Giả sử thư mục 'pubmed_json_2025' chứa các file JSON cần index
-dir = 'pubmed_json_2025'
+    with open(path, "rb") as f:
+        data = pickle.load(f)
 
-for i in tqdm(range(12, 14), desc="Indexing pubmed JSON files"):
-    file = f"pubmed25n{i:04d}.json"
-    path = os.path.join(dir, file)
+    total = len(data)
+    success_count = 0
+    fail_count = 0
 
-    with open(path, 'r', encoding="utf-8") as f:
-        data = json.load(f)
+    print(f"📄 File {file} có {total} vectors. Đang chia và upload theo lô {SUB_BATCH_SIZE}...")
 
-    documents = []
-    ids = []
+    for start in tqdm(range(0, total, SUB_BATCH_SIZE), desc=f"→ File {file}", leave=False):
+        end = min(start + SUB_BATCH_SIZE, total)
+        sub_data = data[start:end]
 
-    for article in data:
-        title = article.get("title", "").strip()
-        abstract = article.get("abstract", "").strip()
-        if not title and not abstract:
-            continue
+        with collection.batch.dynamic() as batch:
+            for obj in sub_data:
+                try:
+                    metadata = {
+                        "page_content": obj["page_content"],
+                        "pmid": obj["metadata"]["pmid"],
+                        "title": obj["metadata"]["title"],
+                        "abstract": obj["metadata"]["abstract"],
+                        "chunk": obj["metadata"]["chunk"],
+                    }
 
-        full_text = f"{title}\n{abstract}".strip()
-        chunks = sent_tokenize(full_text)
+                    safe_uuid = generate_hashed_uuid(obj["vector"], obj["uuid"])
 
-        for idx, chunk in enumerate(chunks):
-            chunk_id = str(uuid.uuid4())
-            doc = Document(
-                page_content=chunk,
-                metadata={
-                    "title": title,
-                    "pmid": article.get("pmid", ""),
-                    "has_abstract": bool(abstract),
-                    "chunk": idx
-                }
-            )
-            documents.append(doc)
-            ids.append(chunk_id)
+                    batch.add_object(
+                        properties=metadata,
+                        uuid=safe_uuid,
+                        vector=obj["vector"]
+                    )
+                    success_count += 1
 
-    print(f"📥 Số document từ {file}: {len(documents)}")
-    vector_store.add_documents(documents=documents, ids=ids)
+                except Exception as e:
+                    print(f"⚠️ Lỗi khi thêm object UUID={obj.get('uuid', '??')}: {e}")
+                    fail_count += 1
 
-print("✅ Hoàn tất indexing các snippet vào Weaviate.")
+        failed_objects = collection.batch.failed_objects
+        if failed_objects:
+            print(f"❌ {len(failed_objects)} lỗi trong batch {start}-{end}. Lỗi đầu tiên:")
+            print(failed_objects[0])
+            fail_count += len(failed_objects)
+        else:
+            print(f"✅ Batch {start}-{end} OK")
+
+        del sub_data
+        gc.collect()
+
+    del data
+    gc.collect()
+    print(f"✔️ Hoàn tất indexing file: {file}")
+    print(f"📊 Tổng vector trong file: {total}")
+    print(f"✅ Thành công: {success_count}")
+    print(f"❌ Thất bại: {fail_count}")
+    print(f"🧮 Tổng đã xử lý: {success_count + fail_count}")
+
+    # --- Restart container để giải phóng RAM ---
+    print("🔁 Stop container để giải phóng RAM...")
+    subprocess.run(["docker", "stop", container_name])
+    time.sleep(60)  # Đợi RAM được hệ thống giải phóng (quan trọng)
+    print("▶️ Start lại container...")
+    subprocess.run(["docker", "start", container_name])
+    print("✅ Container đã được khởi động lại.")
+
+# --- Kết thúc ---
+print("🎉 Đã hoàn tất indexing toàn bộ vectors vào Weaviate.")
+client.close()

@@ -1,0 +1,708 @@
+[
+  {
+    "body": "Are de novo mutations in regulatory elements responsible for neurodevelopmental disorders?",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29562236"
+    ],
+    "ideal_answer": [
+      "Yes. De novo mutations in highly evolutionarily conserved fetal brain-active elements are significantly and specifically enriched in neurodevelopmental disorders. It is estimated that, genome-wide, 1-3% of patients without a diagnostic coding variant carry pathogenic de novo mutations in fetal brain-active regulatory elements and that only 0.15% of all possible mutations within highly conserved fetal brain-active elements cause neurodevelopmental disorders with a dominant mechanism."
+    ],
+    "exact_answer": "yes",
+    "type": "yesno",
+    "id": "5c643485e842deac67000015",
+    "snippets": [
+      {
+        "offsetInBeginSection": 137,
+        "offsetInEndSection": 1008,
+        "text": "The role of de novo mutations in regulatory elements affecting genes associated with developmental disorders, or other genes, has been essentially unexplored. We identified de novo mutations in three classes of putative regulatory elements in almost 8,000 patients with developmental disorders. Here we show that de novo mutations in highly evolutionarily conserved fetal brain-active elements are significantly and specifically enriched in neurodevelopmental disorders. We identified a significant twofold enrichment of recurrently mutated elements. We estimate that, genome-wide, 1-3% of patients without a diagnostic coding variant carry pathogenic de novo mutations in fetal brain-active regulatory elements and that only 0.15% of all possible mutations within highly conserved fetal brain-active elements cause neurodevelopmental disorders with a dominant mechanism.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29562236",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 688,
+        "offsetInEndSection": 1008,
+        "text": "We estimate that, genome-wide, 1-3% of patients without a diagnostic coding variant carry pathogenic de novo mutations in fetal brain-active regulatory elements and that only 0.15% of all possible mutations within highly conserved fetal brain-active elements cause neurodevelopmental disorders with a dominant mechanism.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29562236",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 432,
+        "offsetInEndSection": 607,
+        "text": "Here we show that de novo mutations in highly evolutionarily conserved fetal brain-active elements are significantly and specifically enriched in neurodevelopmental disorders.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29562236",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 761,
+        "offsetInEndSection": 1081,
+        "text": "We estimate that, genome-wide, 1-3% of patients without a diagnostic coding variant carry pathogenic de novo mutations in fetal brain-active regulatory elements and that only 0.15% of all possible mutations within highly conserved fetal brain-active elements cause neurodevelopmental disorders with a dominant mechanism. ",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29562236",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 505,
+        "offsetInEndSection": 680,
+        "text": "Here we show that de novo mutations in highly evolutionarily conserved fetal brain-active elements are significantly and specifically enriched in neurodevelopmental disorders. ",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29562236",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 209,
+        "text": "De novo mutations in regulatory elements in neurodevelopmental disorders.We previously estimated that 42% of patients with severe developmental disorders carry pathogenic de novo mutations in coding sequences. ",
+        "beginSection": "title",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29562236",
+        "endSection": "title"
+      }
+    ]
+  },
+  {
+    "body": "Which tool has been developed for GPU-accelerated alignment of bisulfite-treated DNA sequences?",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29554207"
+    ],
+    "ideal_answer": [
+      "The alignment of bisulfite-treated DNA sequences (BS-seq reads) to a large genome involves a significant computational burden beyond that required to align non-bisulfite-treated reads. In the analysis of BS-seq data, this can present an important performance bottleneck that can be mitigated by appropriate algorithmic and software-engineering improvements. One strategy is to modify the read-alignment algorithms by integrating the logic related to BS-seq alignment, with the goal of making the software implementation amenable to optimizations that lead to higher speed and greater sensitivity than might otherwise be attainable. This strategy was evaluated using Arioc, a short-read aligner that uses GPU (general-purpose graphics processing unit) hardware to accelerate computationally-expensive programming logic."
+    ],
+    "exact_answer": [
+      "Arioc"
+    ],
+    "type": "factoid",
+    "id": "5c6aef167c78d69471000023",
+    "snippets": [
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 66,
+        "text": "Arioc: GPU-accelerated alignment of short bisulfite-treated reads.",
+        "beginSection": "title",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29554207",
+        "endSection": "title"
+      },
+      {
+        "offsetInBeginSection": 12,
+        "offsetInEndSection": 1353,
+        "text": "The alignment of bisulfite-treated DNA sequences (BS-seq reads) to a large genome involves a significant computational burden beyond that required to align non-bisulfite-treated reads. In the analysis of BS-seq data, this can present an important performance bottleneck that can be mitigated by appropriate algorithmic and software-engineering improvements. One strategy is to modify the read-alignment algorithms by integrating the logic related to BS-seq alignment, with the goal of making the software implementation amenable to optimizations that lead to higher speed and greater sensitivity than might otherwise be attainable.Results: We evaluated this strategy using Arioc, a short-read aligner that uses GPU (general-purpose graphics processing unit) hardware to accelerate computationally-expensive programming logic. We integrated the BS-seq computational logic into both GPU and CPU code throughout the Arioc implementation. We then carried out a read-by-read comparison of Arioc's reported alignments with the alignments reported by well-known CPU-based BS-seq read aligners. With simulated reads, Arioc's accuracy is equal to or better than the other read aligners we evaluated. With human sequencing reads, Arioc's throughput is at least 10 times faster than existing BS-seq aligners across a wide range of sensitivity settings.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29554207",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 645,
+        "offsetInEndSection": 838,
+        "text": "Results\nWe evaluated this strategy using Arioc, a short-read aligner that uses GPU (general-purpose graphics processing unit) hardware to accelerate computationally-expensive programming logic.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29554207",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 948,
+        "offsetInEndSection": 1099,
+        "text": "We then carried out a read-by-read comparison of Arioc's reported alignments with the alignments reported by well-known CPU-based BS-seq read aligners.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29554207",
+        "endSection": "abstract"
+      }
+    ]
+  },
+  {
+    "body": "Is there a deep-learning algorithm for protein solubility prediction?",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29554211"
+    ],
+    "ideal_answer": [
+      "Yes. DeepSol is a novel deep learning-based protein solubility predictor. It is a convolutional neural network that exploits k-mer structure and additional sequence and structural features extracted from the protein sequence."
+    ],
+    "exact_answer": "yes",
+    "type": "yesno",
+    "id": "5c6b198f7c78d69471000025",
+    "snippets": [
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 84,
+        "text": "DeepSol: a deep learning framework for sequence-based protein solubility prediction.",
+        "beginSection": "title",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29554211",
+        "endSection": "title"
+      },
+      {
+        "offsetInBeginSection": 12,
+        "offsetInEndSection": 618,
+        "text": "Protein solubility plays a vital role in pharmaceutical research and production yield. For a given protein, the extent of its solubility can represent the quality of its function, and is ultimately defined by its sequence. Thus, it is imperative to develop novel, highly accurate in silico sequence-based protein solubility predictors. In this work we propose, DeepSol, a novel Deep Learning-based protein solubility predictor. The backbone of our framework is a convolutional neural network that exploits k-mer structure and additional sequence and structural features extracted from the protein sequence.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29554211",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 228,
+        "text": "DeepSol: a deep learning framework for sequence-based protein solubility prediction.<AbstractText Label=\"Motivation\" NlmCategory=\"UNASSIGNED\">Protein solubility plays a vital role in pharmaceutical research and production yield. ",
+        "beginSection": "title",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29554211",
+        "endSection": "title"
+      }
+    ]
+  },
+  {
+    "body": "List clinical symptoms of the MECOM-associated syndrome",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29540340"
+    ],
+    "ideal_answer": [
+      "Heterozygous mutations in MECOM (MDS1 and EVI1 complex locus) have been reported to be causative of a rare association of congenital amegakaryocytic thrombocytopenia and radioulnar synostosis. The clinical picture included radioulnar synostosis, bone marrow failure, clinodactyly, cardiac and renal malformations, B-cell deficiency, and presenile hearing loss. No single clinical manifestation was detected in all patients affected by MECOM mutations. Radioulnar synostosis and B-cell deficiency were observed only in patients with mutations affecting a short region in the C-terminal zinc finger domain of EVI1."
+    ],
+    "exact_answer": [
+      [
+        "radioulnar synostosis"
+      ],
+      [
+        "bone marrow failure"
+      ],
+      [
+        "clinodactyly"
+      ],
+      [
+        "cardiac malformations"
+      ],
+      [
+        "renal malformations"
+      ],
+      [
+        "B-cell deficiency"
+      ],
+      [
+        "presenile hearing loss"
+      ]
+    ],
+    "type": "list",
+    "id": "5c63286ae842deac6700000e",
+    "snippets": [
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 120,
+        "text": "MECOM-associated syndrome: a heterogeneous inherited bone marrow failure syndrome with amegakaryocytic thrombocytopenia.",
+        "beginSection": "title",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29540340",
+        "endSection": "title"
+      },
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 1325,
+        "text": "Heterozygous mutations in MECOM (MDS1 and EVI1 complex locus) have been reported to be causative of a rare association of congenital amegakaryocytic thrombocytopenia and radioulnar synostosis. Here we report on 12 patients with congenital hypomegakaryocytic thrombocytopenia caused by MECOM mutations (including 10 novel mutations). The mutations affected different functional domains of the EVI1 protein. The spectrum of phenotypes was much broader than initially reported for the first 3 patients; we found familial as well as sporadic cases, and the clinical spectrum ranged from isolated radioulnar synostosis with no or mild hematological involvement to severe bone marrow failure without obvious skeletal abnormality. The clinical picture included radioulnar synostosis, bone marrow failure, clinodactyly, cardiac and renal malformations, B-cell deficiency, and presenile hearing loss. No single clinical manifestation was detected in all patients affected by MECOM mutations. Radioulnar synostosis and B-cell deficiency were observed only in patients with mutations affecting a short region in the C-terminal zinc finger domain of EVI1. We propose the term MECOM-associated syndrome for this heterogeneous hereditary disease and inclusion of MECOM sequencing in the diagnostic workup of congenital bone marrow failure.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29540340",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 192,
+        "text": "Heterozygous mutations in MECOM (MDS1 and EVI1 complex locus) have been reported to be causative of a rare association of congenital amegakaryocytic thrombocytopenia and radioulnar synostosis.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29540340",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 983,
+        "offsetInEndSection": 1143,
+        "text": "Radioulnar synostosis and B-cell deficiency were observed only in patients with mutations affecting a short region in the C-terminal zinc finger domain of EVI1.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29540340",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 406,
+        "offsetInEndSection": 723,
+        "text": "The spectrum of phenotypes was much broader than initially reported for the first 3 patients; we found familial as well as sporadic cases, and the clinical spectrum ranged from isolated radioulnar synostosis with no or mild hematological involvement to severe bone marrow failure without obvious skeletal abnormality.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29540340",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 724,
+        "offsetInEndSection": 891,
+        "text": "The clinical picture included radioulnar synostosis, bone marrow failure, clinodactyly, cardiac and renal malformations, B-cell deficiency, and presenile hearing loss.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29540340",
+        "endSection": "abstract"
+      }
+    ]
+  },
+  {
+    "body": "What is the difference between the nuclease Cas13a and C2c2",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29575326"
+    ],
+    "ideal_answer": [
+      "Cas13a was previously called C2c2."
+    ],
+    "type": "summary",
+    "id": "5c928303ecadf2e73f000014",
+    "snippets": [
+      {
+        "offsetInBeginSection": 461,
+        "offsetInEndSection": 657,
+        "text": "Recently, with the discovery of the nuclease Cas13a (previously called C2c2), molecular biologists have obtained a system that enables sequence-specific cleavage of single-stranded RNA molecules. ",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29575326",
+        "endSection": "abstract"
+      }
+    ]
+  },
+  {
+    "body": "Which Python tool has been developed for network-based stratification of tumor mutations?",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29608663"
+    ],
+    "ideal_answer": [
+      "PyNBS is a modularized Python 2.7 implementation of the network-based stratification (NBS) algorithm for stratifying tumor somatic mutation profiles into molecularly and clinically relevant subtypes."
+    ],
+    "exact_answer": [
+      "PyNBS"
+    ],
+    "type": "factoid",
+    "id": "5c6ad2997c78d69471000020",
+    "snippets": [
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 83,
+        "text": "pyNBS: a Python implementation for network-based stratification of tumor mutations.",
+        "beginSection": "title",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29608663",
+        "endSection": "title"
+      },
+      {
+        "offsetInBeginSection": 9,
+        "offsetInEndSection": 217,
+        "text": "We present pyNBS: a modularized Python 2.7 implementation of the network-based stratification (NBS) algorithm for stratifying tumor somatic mutation profiles into molecularly and clinically relevant subtypes.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29608663",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 216,
+        "text": "Summary\nWe present pyNBS: a modularized Python 2.7 implementation of the network-based stratification (NBS) algorithm for stratifying tumor somatic mutation profiles into molecularly and clinically relevant subtypes.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29608663",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 206,
+        "text": "pyNBS: a Python implementation for network-based stratification of tumor mutations.The package, along with examples and data, can be downloaded and installed from the URL https://github.com/idekerlab/pyNBS.",
+        "beginSection": "title",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29608663",
+        "endSection": "title"
+      },
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 224,
+        "text": "<b>Summary</b>: We present pyNBS: a modularized Python 2.7 implementation of the network-based stratification (NBS) algorithm for stratifying tumor somatic mutation profiles into molecularly and clinically relevant subtypes.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29608663",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 208,
+        "text": "We present pyNBS: a modularized Python 2.7 implementation of the network-based stratification (NBS) algorithm for stratifying tumor somatic mutation profiles into molecularly and clinically relevant subtypes.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29608663",
+        "endSection": "abstract"
+      }
+    ]
+  },
+  {
+    "body": "Are there tools for visualizing and processing long-read sequencing data?",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29547981"
+    ],
+    "ideal_answer": [
+      "Yes. Tools such as NanoPack for instance have been developed for visualization and processing of long-read sequencing data from Oxford Nanopore Technologies and Pacific Biosciences."
+    ],
+    "exact_answer": "yes",
+    "type": "yesno",
+    "id": "5c6ad3be7c78d69471000021",
+    "snippets": [
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 63,
+        "text": "NanoPack: visualizing and processing long-read sequencing data.",
+        "beginSection": "title",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29547981",
+        "endSection": "title"
+      },
+      {
+        "offsetInBeginSection": 9,
+        "offsetInEndSection": 638,
+        "text": "Here we describe NanoPack, a set of tools developed for visualization and processing of long-read sequencing data from Oxford Nanopore Technologies and Pacific Biosciences.Availability and implementation: The NanoPack tools are written in Python3 and released under the GNU GPL3.0 License. The source code can be found at https://github.com/wdecoster/nanopack, together with links to separate scripts and their documentation. The scripts are compatible with Linux, Mac OS and the MS Windows 10 subsystem for Linux and are available as a graphical user interface, a web service at http://nanoplot.bioinf.be and command line tools.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29547981",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 180,
+        "text": "Summary\nHere we describe NanoPack, a set of tools developed for visualization and processing of long-read sequencing data from Oxford Nanopore Technologies and Pacific Biosciences.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29547981",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 121,
+        "text": "NanoPack: visualizing and processing long-read sequencing data.Supplementary data are available at Bioinformatics online.",
+        "beginSection": "title",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29547981",
+        "endSection": "title"
+      },
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 316,
+        "text": "<b>Summary</b>: Here we describe NanoPack, a set of tools developed for visualization and processing of long-read sequencing data from Oxford Nanopore Technologies and Pacific Biosciences.<br><b>Availability and implementation</b>: The NanoPack tools are written in Python3 and released under the GNU GPL3.0 License.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29547981",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 172,
+        "text": "Here we describe NanoPack, a set of tools developed for visualization and processing of long-read sequencing data from Oxford Nanopore Technologies and Pacific Biosciences.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29547981",
+        "endSection": "abstract"
+      }
+    ]
+  },
+  {
+    "body": "Can oleuropein aglycone interfere with amyloid aggregation?",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29571746"
+    ],
+    "ideal_answer": [
+      "Yes, oleuropein aglycone interferes in vitro and in vivo with amyloid aggregates."
+    ],
+    "exact_answer": "yes",
+    "type": "yesno",
+    "id": "5c890c3375a4a5d21900000e",
+    "snippets": [
+      {
+        "offsetInBeginSection": 285,
+        "offsetInEndSection": 684,
+        "text": "Oleuropein, a phenolic secoiroid glycoside, is the main polyphenol in the olive oil. It has been reported that the aglycone form of Oleuropein (OleA) interferes in vitro and in vivo with amyloid aggregation of a number of proteins/peptides involved in amyloid, particularly neurodegenerative, diseases avoiding the growth of toxic oligomers and displaying protection against cognitive deterioration.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29571746",
+        "endSection": "abstract"
+      }
+    ]
+  },
+  {
+    "body": "Which syndrome is associated to SAMHD1 gene mutations?",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29583030"
+    ],
+    "ideal_answer": [
+      "Mutations in the SAMHD1 gene that cause the severe autoimmune disease, Aicardi-Goutieres syndrome (AGS)."
+    ],
+    "exact_answer": [
+      "Aicardi-Goutieres syndrome"
+    ],
+    "type": "factoid",
+    "id": "5c93e8bdecadf2e73f00001c",
+    "snippets": [
+      {
+        "offsetInBeginSection": 211,
+        "offsetInEndSection": 413,
+        "text": "Its emerging role as an effector of innate immunity is affirmed by mutations in the SAMHD1 gene that cause the severe autoimmune disease, Aicardi-Goutieres syndrome (AGS) and that are linked to cancer. ",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29583030",
+        "endSection": "abstract"
+      }
+    ]
+  },
+  {
+    "body": "What are the most common side effects of amantadine ER?",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29564954"
+    ],
+    "ideal_answer": [
+      "The most common side effects of amantadine ER are hallucination, dizziness, orthostatic hypotension and pedal edema."
+    ],
+    "exact_answer": [
+      [
+        "Hallucination"
+      ],
+      [
+        "Dissiness"
+      ],
+      [
+        "Orthostatic hypotension"
+      ],
+      [
+        "Pedal edema"
+      ]
+    ],
+    "type": "list",
+    "id": "5e2dadcffbd6abf43b000011",
+    "snippets": [
+      {
+        "offsetInBeginSection": 590,
+        "offsetInEndSection": 690,
+        "text": "The most common side effects are hallucination, dizziness, orthostatic hypotension and pedal edema. ",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29564954",
+        "endSection": "abstract"
+      }
+    ]
+  },
+  {
+    "body": "Has amantadine ER been approved by the FDA?",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29532440"
+    ],
+    "ideal_answer": [
+      "Yes, amantadine ER is an US FDA-approved treatment."
+    ],
+    "exact_answer": "yes",
+    "type": "yesno",
+    "id": "5e2db15cfbd6abf43b000014",
+    "snippets": [
+      {
+        "offsetInBeginSection": 270,
+        "offsetInEndSection": 404,
+        "text": "ADS-5102 (amantadine) extended-release (ER) capsules (GOCOVRITM) is a recent US FDA-approved treatment for dyskinesia in PD patients. ",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29532440",
+        "endSection": "abstract"
+      }
+    ]
+  },
+  {
+    "body": "Is amantadine ER the first approved treatment for akinesia?",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29564954"
+    ],
+    "ideal_answer": [
+      "No, extended-release amantadine (amantadine ER) is the first approved medication for the treatment of dyskinesia."
+    ],
+    "exact_answer": "no",
+    "type": "yesno",
+    "id": "5e2dad57fbd6abf43b000010",
+    "snippets": [
+      {
+        "offsetInBeginSection": 198,
+        "offsetInEndSection": 307,
+        "text": "Extended-release amantadine (amantadine ER) is the first approved medication for the treatment of dyskinesia.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29564954",
+        "endSection": "abstract"
+      }
+    ]
+  },
+  {
+    "body": "Describe ChromoTrace",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29522506"
+    ],
+    "ideal_answer": [
+      "Recent advances of super-resolution microscopy in principle enable the mapping of specific molecular features with nanometer precision inside cells. Combined with highly specific, sensitive and multiplexed fluorescence labeling of DNA sequences this opens up the possibility of mapping the 3D path of the genome sequence in situ. ChromoTrace is a computational methodology to reconstruct the sequence configuration of all human chromosomes in the nucleus from a super-resolution image of a set of fluorescent in situ probes hybridized to the genome in a cell. ChromoTrace uses suffix trees to assign a known linear ordering of in situ probes on the genome to an unknown set of 3D in-situ probe positions in the nucleus from super-resolved images using the known genomic probe spacing as a set of physical distance constraints between probes. The algorithm can assign the 3D positions of the majority of loci with high accuracy and reasonable sensitivity to specific genome sequences.",
+      "ChromoTrace is a computational tool to reconstruct the sequence configuration of all human chromosomes in the nucleus from a super-resolution image of a set of fluorescent in situ probes hybridized to the genome in a cell. It can be used to assign the 3D positions of the majority of loci with high accuracy and reasonable sensitivity to specific genome sequences. By simulating appropriate spatial resolution, label multiplexing and noise scenarios it is possible to assess the algorithms performance."
+    ],
+    "type": "summary",
+    "id": "5e369c30b5b409ea53000001",
+    "snippets": [
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 106,
+        "text": "ChromoTrace: Computational reconstruction of 3D chromosome configurations for super-resolution microscopy.",
+        "beginSection": "title",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29522506",
+        "endSection": "title"
+      },
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 1941,
+        "text": "The 3D structure of chromatin plays a key role in genome function, including gene expression, DNA replication, chromosome segregation, and DNA repair. Furthermore the location of genomic loci within the nucleus, especially relative to each other and nuclear structures such as the nuclear envelope and nuclear bodies strongly correlates with aspects of function such as gene expression. Therefore, determining the 3D position of the 6 billion DNA base pairs in each of the 23 chromosomes inside the nucleus of a human cell is a central challenge of biology. Recent advances of super-resolution microscopy in principle enable the mapping of specific molecular features with nanometer precision inside cells. Combined with highly specific, sensitive and multiplexed fluorescence labeling of DNA sequences this opens up the possibility of mapping the 3D path of the genome sequence in situ. Here we develop computational methodologies to reconstruct the sequence configuration of all human chromosomes in the nucleus from a super-resolution image of a set of fluorescent in situ probes hybridized to the genome in a cell. To test our approach, we develop a method for the simulation of DNA in an idealized human nucleus. Our reconstruction method, ChromoTrace, uses suffix trees to assign a known linear ordering of in situ probes on the genome to an unknown set of 3D in-situ probe positions in the nucleus from super-resolved images using the known genomic probe spacing as a set of physical distance constraints between probes. We find that ChromoTrace can assign the 3D positions of the majority of loci with high accuracy and reasonable sensitivity to specific genome sequences. By simulating appropriate spatial resolution, label multiplexing and noise scenarios we assess our algorithms performance. Our study shows that it is feasible to achieve genome-wide reconstruction of the 3D DNA path based on super-resolution microscopy images.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29522506",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 1218,
+        "offsetInEndSection": 1527,
+        "text": "Our reconstruction method, ChromoTrace, uses suffix trees to assign a known linear ordering of in situ probes on the genome to an unknown set of 3D in-situ probe positions in the nucleus from super-resolved images using the known genomic probe spacing as a set of physical distance constraints between probes.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29522506",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 1528,
+        "offsetInEndSection": 1680,
+        "text": "We find that ChromoTrace can assign the 3D positions of the majority of loci with high accuracy and reasonable sensitivity to specific genome sequences.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29522506",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 1528,
+        "offsetInEndSection": 1681,
+        "text": "We find that ChromoTrace can assign the 3D positions of the majority of loci with high accuracy and reasonable sensitivity to specific genome sequences.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29522506",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 1218,
+        "offsetInEndSection": 1528,
+        "text": "Our reconstruction method, ChromoTrace, uses suffix trees to assign a known linear ordering of in situ probes on the genome to an unknown set of 3D in-situ probe positions in the nucleus from super-resolved images using the known genomic probe spacing as a set of physical distance constraints between probes.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29522506",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 2675,
+        "offsetInEndSection": 2837,
+        "text": "Our method, ChromoTrace, uses a computer science data structure, suffix trees, that allow one to simultaneous search the entire genome for specific sub-sequences.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29522506",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 3032,
+        "offsetInEndSection": 3112,
+        "text": "ChromoTrace can robustly and accurately reconstruct 3D paths in our simulations.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29522506",
+        "endSection": "abstract"
+      }
+    ]
+  },
+  {
+    "body": "What is SpatialDE?",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29553579"
+    ],
+    "ideal_answer": [
+      "SpatialDE is a statistical test to identify genes with spatial patterns of expression variation from multiplexed imaging or spatial RNA-sequencing data. SpatialDE also implements ' automatic expression histology', a spatial gene-clustering approach that enables expression-based tissue histology.",
+      "Technological advances have made it possible to measure spatially resolved gene expression at high throughput. However, methods to analyze these data are not established. SpatialDE is a statistical test to identify genes with spatial patterns of expression variation from multiplexed imaging or spatial RNA-sequencing data. SpatialDE also implements 'automatic expression histology', a spatial gene-clustering approach that enables expression-based tissue histology."
+    ],
+    "type": "summary",
+    "id": "5e51a7ec6d0a27794100003b",
+    "snippets": [
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 54,
+        "text": "SpatialDE: identification of spatially variable genes.",
+        "beginSection": "title",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29553579",
+        "endSection": "title"
+      },
+      {
+        "offsetInBeginSection": 0,
+        "offsetInEndSection": 481,
+        "text": "Technological advances have made it possible to measure spatially resolved gene expression at high throughput. However, methods to analyze these data are not established. Here we describe SpatialDE, a statistical test to identify genes with spatial patterns of expression variation from multiplexed imaging or spatial RNA-sequencing data. SpatialDE also implements 'automatic expression histology', a spatial gene-clustering approach that enables expression-based tissue histology.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29553579",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 339,
+        "offsetInEndSection": 481,
+        "text": "SpatialDE also implements 'automatic expression histology', a spatial gene-clustering approach that enables expression-based tissue histology.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29553579",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 171,
+        "offsetInEndSection": 338,
+        "text": "Here we describe SpatialDE, a statistical test to identify genes with spatial patterns of expression variation from multiplexed imaging or spatial RNA-sequencing data.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29553579",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 173,
+        "offsetInEndSection": 343,
+        "text": "Here we describe SpatialDE , a statistical test to identify genes with spatial patterns of expression variation from multiplexed imaging or spatial RNA-sequencing data . ",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29553579",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 339,
+        "offsetInEndSection": 482,
+        "text": "SpatialDE also implements 'automatic expression histology', a spatial gene-clustering approach that enables expression-based tissue histology.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29553579",
+        "endSection": "abstract"
+      },
+      {
+        "offsetInBeginSection": 171,
+        "offsetInEndSection": 339,
+        "text": "Here we describe SpatialDE, a statistical test to identify genes with spatial patterns of expression variation from multiplexed imaging or spatial RNA-sequencing data.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29553579",
+        "endSection": "abstract"
+      }
+    ]
+  },
+  {
+    "body": "List 3 PD-L1 inhibitors on the market as of 2018.",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29571563"
+    ],
+    "ideal_answer": [
+      "Atezolizumab (Tecentriq), Avelumab (Bavencio), and Durvalumab (Imfinzi) are PD-L1 inhibitors"
+    ],
+    "exact_answer": [
+      [
+        "Atezolizumab (Tecentriq)"
+      ],
+      [
+        "Avelumab (Bavencio)"
+      ],
+      [
+        "Durvalumab (Imfinzi)"
+      ]
+    ],
+    "type": "list",
+    "id": "5e494b0e6d0a277941000007",
+    "snippets": [
+      {
+        "offsetInBeginSection": 312,
+        "offsetInEndSection": 441,
+        "text": "PD-L1 ICI, such as atezolizumab (TECENTRIQ®, Genentech), durvalumab (IMFINZI®, Astra-Zeneca), and avelumab (BAVENCIO®, EMD Serono",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29571563",
+        "endSection": "abstract"
+      }
+    ]
+  },
+  {
+    "body": "Are TAMs good anticancer therapeutic targets?",
+    "documents": [
+      "http://www.ncbi.nlm.nih.gov/pubmed/29594035"
+    ],
+    "ideal_answer": [
+      "Therapeutic strategies to target TAMs to complement conventional therapies has yielded promising results."
+    ],
+    "exact_answer": "yes",
+    "type": "yesno",
+    "id": "602c2ade1cb411341a000124",
+    "snippets": [
+      {
+        "offsetInBeginSection": 924,
+        "offsetInEndSection": 1162,
+        "text": "Integrating therapeutic strategies to target TAMs to complement conventional therapies has yielded promising results in preclinical trials and warrants further investigation to determine its translational benefit in human cancer patients.",
+        "beginSection": "abstract",
+        "document": "http://www.ncbi.nlm.nih.gov/pubmed/29594035",
+        "endSection": "abstract"
+      }
+    ]
+  }
+]

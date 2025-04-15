@@ -1,0 +1,82 @@
+[
+  {
+    "question_id": "5c643485e842deac67000015",
+    "question": "Are de novo mutations in regulatory elements responsible for neurodevelopmental disorders?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c6aef167c78d69471000023",
+    "question": "Which tool has been developed for GPU-accelerated alignment of bisulfite-treated DNA sequences?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c6b198f7c78d69471000025",
+    "question": "Is there a deep-learning algorithm for protein solubility prediction?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c63286ae842deac6700000e",
+    "question": "List clinical symptoms of the MECOM-associated syndrome",
+    "question_type": "list"
+  },
+  {
+    "question_id": "5c928303ecadf2e73f000014",
+    "question": "What is the difference between the nuclease Cas13a and C2c2",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5c6ad2997c78d69471000020",
+    "question": "Which Python tool has been developed for network-based stratification of tumor mutations?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c6ad3be7c78d69471000021",
+    "question": "Are there tools for visualizing and processing long-read sequencing data?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c890c3375a4a5d21900000e",
+    "question": "Can oleuropein aglycone interfere with amyloid aggregation?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c93e8bdecadf2e73f00001c",
+    "question": "Which syndrome is associated to SAMHD1 gene mutations?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5e2dadcffbd6abf43b000011",
+    "question": "What are the most common side effects of amantadine ER?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "5e2db15cfbd6abf43b000014",
+    "question": "Has amantadine ER been approved by the FDA?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5e2dad57fbd6abf43b000010",
+    "question": "Is amantadine ER the first approved treatment for akinesia?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5e369c30b5b409ea53000001",
+    "question": "Describe ChromoTrace",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5e51a7ec6d0a27794100003b",
+    "question": "What is SpatialDE?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5e494b0e6d0a277941000007",
+    "question": "List 3 PD-L1 inhibitors on the market as of 2018.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "602c2ade1cb411341a000124",
+    "question": "Are TAMs good anticancer therapeutic targets?",
+    "question_type": "yesno"
+  }
+]
