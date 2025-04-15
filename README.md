@@ -17,31 +17,31 @@ This project implements a RAG pipeline that combines dense retrieval and generat
 ## Usage
 <a name = 'usage'></a>
 
-# 1. Clone the repository and navigate to the working directory
+### 1. Clone the repository and navigate to the working directory
 ```
 git init
 git clone https://github.com/hddat2k4/BioASQ_UIT.git
 cd /d BioASQ
 ``` 
-# 2. Create a virtual environment
+### 2. Create a virtual environment
 ```
 python -m venv venv
 .\venv\Scripts\activate  # On Windows
 # source venv/bin/activate  # On Linux/MacOS
 ```
 
-# 3. Install Weaviate via Docker using the docker-compose.yml file in repo
+### 3. Install Weaviate via Docker using the docker-compose.yml file in repo
 ```
 docker-compose up -d
 ```
 
-# 4. Create a schema for the Weaviate collection
+### 4. Create a schema for the Weaviate collection
 
 ```
 python create_weaviate.py
 ```
 
-# 5. Index vectors into the collection 
+### 5. Index vectors into the collection 
 
 ⚠️ Note: Ensure you have already embedded your data and verified the correct directory path before indexing.
 
@@ -49,7 +49,7 @@ python create_weaviate.py
 python we_index.py
 ```
 
-# 6. Edit train.py to point to your question file
+### 6. Edit train.py to point to your question file
 Ensure your question file follows the format below:
 
 
