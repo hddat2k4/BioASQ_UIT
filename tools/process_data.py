@@ -23,21 +23,6 @@ def get_full_abstract(article_elem):
             texts.append(part)
     return " ".join(texts).strip() if texts else None
 
-def get_similar_articles_ids(article_elem):
-    similar_pmids = set()
-
-    # Từ CommentsCorrectionsList
-    for elem in article_elem.findall(".//CommentsCorrections"):
-        ref_pmid = elem.findtext("PMID")
-        if ref_pmid:
-            similar_pmids.add(ref_pmid)
-
-    # Từ ReferenceList
-    for ref in article_elem.findall(".//Reference/ArticleIdList/ArticleId"):
-        if ref.text:
-            similar_pmids.add(ref.text)
-
-    return list(similar_pmids)
 
 def extract_all_pubmed_articles(gz_path, output_json_path, max_articles=None):
     articles = []
@@ -48,13 +33,11 @@ def extract_all_pubmed_articles(gz_path, output_json_path, max_articles=None):
                 pmid = elem.findtext(".//PMID") or ""
                 title = elem.findtext(".//ArticleTitle") or ""
                 abstract = get_full_abstract(elem) or ""
-                similar_articles = get_similar_articles_ids(elem)
 
                 articles.append({
                     "pmid": pmid,
                     "title": title,
                     "abstract": abstract,
-                    "similar_articles": similar_articles
                 })
 
                 elem.clear()
