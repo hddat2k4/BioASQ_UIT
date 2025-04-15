@@ -1,9 +1,8 @@
 langchain
-langchain-openai
-chromadb
-openai
 sentence-transformers
 tqdm
 transformers
 torch
 python-dotenv
+langchain-milvus
+nltk

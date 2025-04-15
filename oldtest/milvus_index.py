@@ -2,6 +2,7 @@ import torch, os, json, nltk
 from tqdm import tqdm
 from nltk.tokenize import sent_tokenize
 nltk.download('punkt')
+nltk.download('punkt_tab')
 import uuid
 
 from pymilvus import Collection, MilvusException, connections, db, utility
@@ -73,9 +74,10 @@ vector_store = Milvus(
 
 
 # --- Tiền xử lý và indexing ---
-dir = 'pubmed_json_2025'
+dir = r'C:\Users\ACER\pubmed_baseline_2025'
 
-for i in tqdm(range(12, 14), desc="Indexing pubmed JSON files"):
+
+for i in tqdm(range(922, 925), desc="Indexing pubmed JSON files"):
     file = f"pubmed25n{i:04d}.json"
     path = os.path.join(dir, file)
 
