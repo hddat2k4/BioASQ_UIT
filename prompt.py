@@ -1,8 +1,9 @@
-from langchain.prompts.chat import ChatPromptTemplate
+from langchain.prompts import ChatPromptTemplate
 
 
 ## 01 - yesno, 02 - factoid, 03 - list, 04 - summary
-from langchain.prompts import ChatPromptTemplate
+## Create an LLM prompt for each type of question
+
 
 prompt_01 = ChatPromptTemplate.from_messages([
     (
@@ -141,6 +142,7 @@ Only return valid JSON. Do not add any other text outside the JSON object.
 """)
 ])
 
+## function for getting prompt
 def get_prompt(text: str) -> ChatPromptTemplate:
     prompt_map = {
         "yesno": prompt_01,

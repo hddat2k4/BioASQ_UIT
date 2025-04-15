@@ -1,10 +1,12 @@
 import weaviate
 import weaviate.classes as wvc
 
-# Kết nối tới Weaviate local
+# Connect to local Weaviate
 client = weaviate.connect_to_local()
 
-client.collections.delete("PubMedAbstract")
+# Delete old collection
+# client.collections.delete("PubMedAbstract")
+
 
 client.collections.create(
     name="PubMedAbstract",
@@ -19,7 +21,7 @@ client.collections.create(
     ]
 )
 
-print("Đã tạo schema 'PubMedAbstract' thành công.")
+print("Create schema 'PubMedAbstract' successfully.")
 client.close()
 
 

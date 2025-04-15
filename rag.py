@@ -6,7 +6,6 @@ from sentence_transformers import SentenceTransformer
 from langchain.embeddings.base import Embeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
 
 load_dotenv()
 
@@ -63,7 +62,7 @@ def extract_snippets(docs,scores):
             doc_id.add(pmid)
     return snippets, list(doc_id)
 
-
+# -- Helper: clean output of LLM --
 def clean_output(text):
     if isinstance(text, dict): 
         return json.dumps(text)
@@ -88,7 +87,7 @@ def qa_sys(item):
     q_type = item["question_type"]
     qid = item["question_id"]
 
-    # Get documents from retriever manually
+    # Get documents from retriever manually with score
     res = vectorstore.similarity_search_with_score(question, k=15)
     docs = [r[0] for r in res]
     scores = [r[1] for r in res]
@@ -123,23 +122,24 @@ def qa_sys(item):
         "body": question,
         "type": q_type,
         "documents": doc_id,
-        "snippets": [i for i in snippets if i['score']>0.5],
+        "snippets": [i for i in snippets if i['score']>=0.5],   # use this one if you wanna get snippet by score
+        # "snippets" : snippets, 
         "exact_answer": parsed.get("exact_answer"),
         "ideal_answer": parsed.get("ideal_answer")
     }
 
 
+## -- Retrieve docs --
 def retrieve_docs(item):
     question = item["question"]
     qid = item["question_id"]
     q_type = item["question_type"]
 
-    # Truy vấn vectorstore với score
     res = vectorstore.similarity_search_with_score(question, k=15)
     docs = [r[0] for r in res]
     scores = [r[1] for r in res]
 
-    # Trích thông tin giống như trong qa_sys
+
     retrieved_docs = []
     for doc, score in zip(docs, scores):
         meta = doc.metadata
