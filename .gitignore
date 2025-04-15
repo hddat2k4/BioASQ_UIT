@@ -3,4 +3,4 @@ pubmed_json_2025/
 embeddings/
 final_model/
 data/
-
+__pycache__/
