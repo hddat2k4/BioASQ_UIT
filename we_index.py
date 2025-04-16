@@ -18,7 +18,8 @@ import gc
 import subprocess
 
 # --- Thông tin cấu hình ---
-input_dir = "embeddings"
+current_dir = os.path.dirname(os.path.abspath(__file__))  # thư mục chứa file .py
+input_dir = os.path.join(current_dir, 'embeddings')
 container_name = "bioasq-weaviate-1"
 collection_name = "PubMedAbstract"
 SUB_BATCH_SIZE = 300
