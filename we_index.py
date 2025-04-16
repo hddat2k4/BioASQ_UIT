@@ -46,7 +46,7 @@ collection = client.collections.get(collection_name)
 #939-941 
 for i in tqdm(range(939, 942), desc="Indexing files"):
 
-    file = f"embeddings_{i:04d}.pkl.pkl"
+    file = f"embeddings_{i:04d}.pkl"
     path = os.path.join(input_dir, file)
 
     if not os.path.exists(path):
