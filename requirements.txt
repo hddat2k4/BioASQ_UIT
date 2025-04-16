@@ -6,3 +6,4 @@ torch
 python-dotenv
 langchain-milvus
 nltk
+weaviate-client
