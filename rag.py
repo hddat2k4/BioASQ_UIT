@@ -1,4 +1,5 @@
 import weaviate, torch, os, json, re
+from rm3 import expand_query
 from prompt import get_prompt
 from dotenv import load_dotenv
 from langchain_weaviate.vectorstores import WeaviateVectorStore
@@ -44,10 +45,10 @@ vectorstore = WeaviateVectorStore(
 retriever = vectorstore.as_retriever(search_kwargs={"k": 10})
 
 # -- Helper: extract snippets --
-def extract_snippets(docs,scores):
+def extract_snippets(docs):
     snippets = []
     doc_id = set()
-    for doc, score in zip(docs, scores):
+    for doc in docs:
         meta = doc.metadata
         pmid = meta.get("pmid", "")
         chunk_index = meta.get("chunk", 0)
@@ -56,10 +57,11 @@ def extract_snippets(docs,scores):
             "pmid": pmid,
             "text": doc.page_content,
             "chunk": chunk_index,
-            "score": score
+            #"score": score
         })
-        if score>=0.5:
-            doc_id.add(pmid)
+        # if score>=0.4:
+        #     doc_id.add(pmid)
+        doc_id.add(pmid)
     return snippets, list(doc_id)
 
 # -- Helper: clean output of LLM --
@@ -88,10 +90,10 @@ def qa_sys(item):
     qid = item["question_id"]
 
     # Get documents from retriever manually with score
-    res = vectorstore.similarity_search_with_score(question, k=5)
-    docs = [r[0] for r in res]
-    scores = [r[1] for r in res]
-    snippets, doc_id = extract_snippets(docs, scores)
+    docs = vectorstore.similarity_search(question,alpha = 0, k = 10)
+    que = expand_query(question,docs,n_terms = 5, lambda_param = 0.6)
+    docs = vectorstore.similarity_search(que,alpha = 0, k = 10)
+    snippets, doc_id = extract_snippets(docs)
     context = extract_context(docs)
 
     # Build prompt input
@@ -122,8 +124,8 @@ def qa_sys(item):
         "body": question,
         "type": q_type,
         "documents": doc_id,
-        "snippets": [i for i in snippets if i['score']>=0.5],   # use this one if you wanna get snippet by score
-        # "snippets" : snippets, 
+        # "snippets": [i for i in snippets if i['score']>=0.4],   # use this one if you wanna get snippet by score
+        "snippets" : snippets, 
         "exact_answer": parsed.get("exact_answer"),
         "ideal_answer": parsed.get("ideal_answer")
     }
@@ -135,7 +137,7 @@ def retrieve_docs(item):
     qid = item["question_id"]
     q_type = item["question_type"]
 
-    res = vectorstore.similarity_search_with_score(question, k=5)
+    res = vectorstore.similarity_search_with_score(question, k=15)
     docs = [r[0] for r in res]
     scores = [r[1] for r in res]
 
