@@ -20,7 +20,12 @@ import subprocess
 # --- Thông tin cấu hình ---
 current_dir = os.path.dirname(os.path.abspath(__file__))  # thư mục chứa file .py
 input_dir = os.path.join(current_dir, 'embeddings')
-container_name = "bioasq_uit-weaviate-1"
+# Lấy tên thư mục chứa file .py hiện tại
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FOLDER_NAME = os.path.basename(BASE_DIR).lower()
+
+# Gán tên container
+container_name = f"{FOLDER_NAME}-weaviate-1"
 collection_name = "PubMedAbstract"
 SUB_BATCH_SIZE = 300
 
