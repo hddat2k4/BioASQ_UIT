@@ -4,3 +4,5 @@ embeddings/
 final_model/
 data/
 __pycache__/
+.tar
+.gz
