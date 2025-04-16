@@ -11,7 +11,7 @@ load_dotenv()
 
 # -- Load LLM --
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-pro-exp-03-25",
+    model="gemini-2.0-flash",
     google_api_key=os.getenv("GOOGLE_API_KEY")
 )
 
@@ -88,7 +88,7 @@ def qa_sys(item):
     qid = item["question_id"]
 
     # Get documents from retriever manually with score
-    res = vectorstore.similarity_search_with_score(question, k=15)
+    res = vectorstore.similarity_search_with_score(question, k=5)
     docs = [r[0] for r in res]
     scores = [r[1] for r in res]
     snippets, doc_id = extract_snippets(docs, scores)
@@ -135,7 +135,7 @@ def retrieve_docs(item):
     qid = item["question_id"]
     q_type = item["question_type"]
 
-    res = vectorstore.similarity_search_with_score(question, k=15)
+    res = vectorstore.similarity_search_with_score(question, k=5)
     docs = [r[0] for r in res]
     scores = [r[1] for r in res]
 
