@@ -7,3 +7,4 @@ __pycache__/
 .tar
 .gz
 .qodo
+__pycache__/rag.cpython-310.pyc

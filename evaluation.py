@@ -160,21 +160,25 @@ def extract_common_fields(gold_item, pred_item):
     pred_filtered = {k: pred_item[k] for k in common_keys}
     return gold_filtered, pred_filtered
 
-# File paths
+# --- Cấu hình ---
+retrieval_mode = "hybrid"  # "dense", "bm25", "hybrid"
+
+# --- Đường dẫn file ---
 current_dir = os.path.dirname(os.path.abspath(__file__))
-predictions_path = os.path.join(current_dir, 'testcase', 'predictions.json')
+predictions_path = os.path.join(current_dir, 'testcase', f'predictions_{retrieval_mode}.json')
 gold_data_path = os.path.join(current_dir, 'testcase', 'gold_data.json')
 
-# Load predictions and gold data
+# --- Load dữ liệu ---
 with open(predictions_path, "r", encoding="utf-8") as f:
     predictions = json.load(f)
 with open(gold_data_path, "r", encoding="utf-8") as f:
     gold_data = json.load(f)
 
-# Evaluate output
+# --- Đánh giá ---
 metrics = evaluate_output(predictions, gold_data, k=5)
-# In đẹp:
+
+# --- In kết quả ---
 print(f"{'Metric':<35} {'Score':>10}")
 print("-" * 47)
 for k, v in metrics.items():
-    print(f"{model.embed_model_name} - {model.llm_model_name}: {k:<35} {v:>10.4f}")
+    print(f"{model.embed_model_name} - {model.llm_model_name} - {retrieval_mode}: {k:<35} {v:>10.4f}")

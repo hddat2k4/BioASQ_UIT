@@ -1,0 +1,1046 @@
+[
+     {
+          "id": "5c643485e842deac67000015",
+          "body": "Are de novo mutations in regulatory elements responsible for neurodevelopmental disorders?",
+          "type": "yesno",
+          "documents": [
+               "29588991",
+               "29562236"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29562236",
+                    "text": "De novo mutations in regulatory elements in neurodevelopmental disorders.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29562236",
+                    "text": "We identified a significant twofold enrichment of recurrently mutated elements.",
+                    "chunk": 5
+               },
+               {
+                    "pmid": "29562236",
+                    "text": "Here we show that de novo mutations in highly evolutionarily conserved fetal brain-active elements are significantly and specifically enriched in neurodevelopmental disorders.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29562236",
+                    "text": "We previously estimated that 42% of patients with severe developmental disorders carry pathogenic de novo mutations in coding sequences.",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29562236",
+                    "text": "We identified de novo mutations in three classes of putative regulatory elements in almost 8,000 patients with developmental disorders.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29562236",
+                    "text": "The role of de novo mutations in regulatory elements affecting genes associated with developmental disorders, or other genes, has been essentially unexplored.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29562236",
+                    "text": "Our findings represent a robust estimate of the contribution of de novo mutations in regulatory elements to this genetically heterogeneous set of disorders, and emphasize the importance of combining functional and evolutionary evidence to identify regulatory causes of genetic disorders.",
+                    "chunk": 7
+               },
+               {
+                    "pmid": "29562236",
+                    "text": "We estimate that, genome-wide, 1-3% of patients without a diagnostic coding variant carry pathogenic de novo mutations in fetal brain-active regulatory elements and that only 0.15% of all possible mutations within highly conserved fetal brain-active elements cause neurodevelopmental disorders with a dominant mechanism.",
+                    "chunk": 6
+               },
+               {
+                    "pmid": "29588991",
+                    "text": "Whole-exome sequencing identified de novo pathogenic mutations in",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29588991",
+                    "text": "Early-onset epileptic encephalopathy and severe developmental delay in an association with de novo double mutations in Advance in the exome-wide sequencing analysis contributes to identifying hundreds of genes that are associated with early-onset epileptic encephalopathy and neurodevelopmental disorders.",
+                    "chunk": 0
+               }
+          ],
+          "exact_answer": "Yes",
+          "ideal_answer": "De novo mutations in highly evolutionarily conserved fetal brain-active elements are significantly and specifically enriched in neurodevelopmental disorders."
+     },
+     {
+          "id": "5c6aef167c78d69471000023",
+          "body": "Which tool has been developed for GPU-accelerated alignment of bisulfite-treated DNA sequences?",
+          "type": "factoid",
+          "documents": [
+               "29554207"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29554207",
+                    "text": "Motivation: The alignment of bisulfite-treated DNA sequences (BS-seq reads) to a large genome involves a significant computational burden beyond that required to align non-bisulfite-treated reads.",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29554207",
+                    "text": "Arioc: GPU-accelerated alignment of short bisulfite-treated reads.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29554207",
+                    "text": "We integrated the BS-seq computational logic into both GPU and CPU code throughout the Arioc implementation.",
+                    "chunk": 5
+               },
+               {
+                    "pmid": "29554207",
+                    "text": "Results: We evaluated this strategy using Arioc, a short-read aligner that uses GPU (general-purpose graphics processing unit) hardware to accelerate computationally-expensive programming logic.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29554207",
+                    "text": "One strategy is to modify the read-alignment algorithms by integrating the logic related to BS-seq alignment, with the goal of making the software implementation amenable to optimizations that lead to higher speed and greater sensitivity than might otherwise be attainable.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29554207",
+                    "text": "With human sequencing reads, Arioc's throughput is at least 10 times faster than existing BS-seq aligners across a wide range of sensitivity settings.",
+                    "chunk": 8
+               },
+               {
+                    "pmid": "29554207",
+                    "text": "Supplementary information: Supplementary data are available at Bioinformatics online.",
+                    "chunk": 11
+               },
+               {
+                    "pmid": "29554207",
+                    "text": "Availability and implementation: The Arioc software is available for download at https://github.com/RWilton/Arioc.",
+                    "chunk": 9
+               },
+               {
+                    "pmid": "29554207",
+                    "text": "We then carried out a read-by-read comparison of Arioc's reported alignments with the alignments reported by well-known CPU-based BS-seq read aligners.",
+                    "chunk": 6
+               },
+               {
+                    "pmid": "29554207",
+                    "text": "In the analysis of BS-seq data, this can present an important performance bottleneck that can be mitigated by appropriate algorithmic and software-engineering improvements.",
+                    "chunk": 2
+               }
+          ],
+          "exact_answer": "Arioc",
+          "ideal_answer": "Arioc, a short-read aligner, has been developed for GPU-accelerated alignment of bisulfite-treated DNA sequences."
+     },
+     {
+          "id": "5c6b198f7c78d69471000025",
+          "body": "Is there a deep-learning algorithm for protein solubility prediction?",
+          "type": "yesno",
+          "documents": [
+               "29554211"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29554211",
+                    "text": "DeepSol: a deep learning framework for sequence-based protein solubility prediction.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29554211",
+                    "text": "In this work we propose, DeepSol, a novel Deep Learning-based protein solubility predictor.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29554211",
+                    "text": "The superior prediction accuracy of DeepSol allows to screen for sequences with enhanced production capacity and can more reliably predict solubility of novel proteins.",
+                    "chunk": 7
+               },
+               {
+                    "pmid": "29554211",
+                    "text": "Motivation: Protein solubility plays a vital role in pharmaceutical research and production yield.",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29554211",
+                    "text": "Results: DeepSol outperformed all known sequence-based state-of-the-art solubility prediction methods and attained an accuracy of 0.77 and Matthew's correlation coefficient of 0.55.",
+                    "chunk": 6
+               },
+               {
+                    "pmid": "29554211",
+                    "text": "Thus, it is imperative to develop novel, highly accurate in silico sequence-based protein solubility predictors.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29554211",
+                    "text": "For a given protein, the extent of its solubility can represent the quality of its function, and is ultimately defined by its sequence.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29554211",
+                    "text": "The backbone of our framework is a convolutional neural network that exploits k-mer structure and additional sequence and structural features extracted from the protein sequence.",
+                    "chunk": 5
+               },
+               {
+                    "pmid": "29554211",
+                    "text": "Availability and implementation: DeepSol's best performing models and results are publicly deposited at https://doi.org/10.5281/zenodo.1162886 (Khurana and Mall, 2018).",
+                    "chunk": 8
+               },
+               {
+                    "pmid": "29554211",
+                    "text": "Supplementary information: Supplementary data are available at Bioinformatics online.",
+                    "chunk": 9
+               }
+          ],
+          "exact_answer": "Yes",
+          "ideal_answer": "DeepSol, a deep learning framework, is designed for sequence-based protein solubility prediction."
+     },
+     {
+          "id": "5c63286ae842deac6700000e",
+          "body": "List clinical symptoms of the MECOM-associated syndrome",
+          "type": "list",
+          "documents": [
+               "29525522",
+               "29603369",
+               "29544938",
+               "29572885",
+               "29540340"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29540340",
+                    "text": "MECOM-associated syndrome: a heterogeneous inherited bone marrow failure syndrome with amegakaryocytic thrombocytopenia.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29540340",
+                    "text": "Heterozygous mutations in",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29544938",
+                    "text": "Adding Reg3β to the acute coronary syndrome prognostic marker list.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29525522",
+                    "text": "The Distress Thermometer and Problem List (DT&PL) is commonly used in oncology clinics to screen for distress and its accompanying Physical Problem List (PPL) identifies pertinent physical symptoms.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29603369",
+                    "text": "Among 42, 18 candidate SNPs of the lumbar spine were located within the MECOM gene, which is associated with osteopenia (minimum P = 5.86E - 07).",
+                    "chunk": 7
+               },
+               {
+                    "pmid": "29572885",
+                    "text": "Health problems associated with irritable bowel syndrome: analysis of a primary care registry.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29572885",
+                    "text": "AIMS: To investigate which health problems are associated with irritable bowel syndrome, how they cluster together and when they are typically diagnosed relative to irritable bowel syndrome.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29572885",
+                    "text": "We characterised the comorbidities of irritable bowel syndrome as psychosocial health problems, urogenital symptoms and infections, musculoskeletal symptoms and other somatic symptoms.",
+                    "chunk": 8
+               },
+               {
+                    "pmid": "29572885",
+                    "text": "CONCLUSIONS: Irritable bowel syndrome shares long-term associations with psychosocial health problems, urogenital symptoms and infections, musculoskeletal symptoms and other somatic symptoms in primary care.",
+                    "chunk": 10
+               },
+               {
+                    "pmid": "29572885",
+                    "text": "These had a uniform incidence in the years around the irritable bowel syndrome diagnosis, and did not structurally precede or follow irritable bowel syndrome.",
+                    "chunk": 9
+               }
+          ],
+          "exact_answer": [
+               [
+                    "amegakaryocytic thrombocytopenia"
+               ],
+               [
+                    "osteopenia"
+               ],
+               [
+                    "psychosocial health problems"
+               ],
+               [
+                    "urogenital symptoms and infections"
+               ],
+               [
+                    "musculoskeletal symptoms"
+               ],
+               [
+                    "other somatic symptoms"
+               ]
+          ],
+          "ideal_answer": "MECOM-associated syndrome is a heterogeneous inherited bone marrow failure syndrome characterized by amegakaryocytic thrombocytopenia. While the provided context does not list all clinical symptoms of the MECOM-associated syndrome, it identifies amegakaryocytic thrombocytopenia as a key feature. Additionally, SNPs within the MECOM gene are associated with osteopenia. Irritable bowel syndrome shares long-term associations with psychosocial health problems, urogenital symptoms and infections, musculoskeletal symptoms and other somatic symptoms in primary care."
+     },
+     {
+          "id": "5c928303ecadf2e73f000014",
+          "body": "What is the difference between the nuclease Cas13a and C2c2",
+          "type": "summary",
+          "documents": [
+               "29575326"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29575326",
+                    "text": "Recently, with the discovery of the nuclease Cas13a (previously called C2c2), molecular biologists have obtained a system that enables sequence-specific cleavage of single-stranded RNA molecules.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29575326",
+                    "text": "The first application of Cas13a for post-transcriptional regulation of gene expression in plants has been reported.",
+                    "chunk": 6
+               },
+               {
+                    "pmid": "29575326",
+                    "text": "More interesting applications are imminent for plant biologists, with nuclease dead versions of Cas13 enabling the ability to visualize RNA molecules in vivo, as well as to edit different kinds of RNA molecules at specific bases by deamination or to modify them by conjugation.",
+                    "chunk": 9
+               },
+               {
+                    "pmid": "29575326",
+                    "text": "Recent results show that the system is also applicable for combating viral infection in plants.",
+                    "chunk": 7
+               },
+               {
+                    "pmid": "29575326",
+                    "text": "As single-stranded RNA viruses are by far the most abundant class of viruses in plants, the application of this system is of special promise for crops.",
+                    "chunk": 8
+               },
+               {
+                    "pmid": "29575326",
+                    "text": "The CRISPR/Cas revolution reaches the RNA world: Cas13, a new Swiss Army knife for plant biologists.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29575326",
+                    "text": "Application of the bacterial CRISPR/Cas systems to eukaryotes is revolutionizing biology.",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29575326",
+                    "text": "Moreover, by combining DNA- and RNA-directed systems, the most complex of changes in plant metabolism might be achievable.",
+                    "chunk": 10
+               },
+               {
+                    "pmid": "29575326",
+                    "text": "Moreover, histone modifications, as well as cytosine methylation or base editing, were achieved with these systems in plants.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29575326",
+                    "text": "The latest experiments with this and also the alternative Cas13b system demonstrate that these proteins can be used in a similar manner in eukaryotes for RNA manipulation as Cas9 and Cas12 for DNA manipulations.",
+                    "chunk": 5
+               }
+          ],
+          "exact_answer": null,
+          "ideal_answer": "Cas13a was previously called C2c2, and both are nucleases that enable sequence-specific cleavage of single-stranded RNA molecules."
+     },
+     {
+          "id": "5c6ad2997c78d69471000020",
+          "body": "Which Python tool has been developed for network-based stratification of tumor mutations?",
+          "type": "factoid",
+          "documents": [
+               "29608663",
+               "29610481"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29608663",
+                    "text": "pyNBS: a Python implementation for network-based stratification of tumor mutations.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29608663",
+                    "text": "Summary: We present pyNBS: a modularized Python 2.7 implementation of the network-based stratification (NBS) algorithm for stratifying tumor somatic mutation profiles into molecularly and clinically relevant subtypes.",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29608663",
+                    "text": "In addition to release of the software, we benchmark its key parameters and provide a compact cancer reference network that increases the significance of tumor stratification using the NBS algorithm.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29608663",
+                    "text": "The structure of the code exposes key steps of the algorithm to foster further collaborative development.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29608663",
+                    "text": "Availability and implementation: The package, along with examples and data, can be downloaded and installed from the URL https://github.com/idekerlab/pyNBS.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29610481",
+                    "text": "A global transcriptional network connecting noncoding mutations to changes in tumor gene expression.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29610481",
+                    "text": "Here we perform an integrative analysis of 930 tumor whole genomes and matched transcriptomes, identifying a network of 193 noncoding loci in which mutations disrupt target gene expression.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29610481",
+                    "text": "Collectively, the noncoding loci converge on a set of core pathways, permitting a classification of tumors into pathway-based subtypes.",
+                    "chunk": 5
+               },
+               {
+                    "pmid": "29610481",
+                    "text": "The somatic eQTL network is disrupted in 88% of tumors, suggesting widespread impact of noncoding mutations in cancer.",
+                    "chunk": 6
+               },
+               {
+                    "pmid": "29610481",
+                    "text": "Although cancer genomes are replete with noncoding mutations, the effects of these mutations remain poorly characterized.",
+                    "chunk": 1
+               }
+          ],
+          "exact_answer": "pyNBS",
+          "ideal_answer": "The Python tool developed for network-based stratification of tumor mutations is pyNBS."
+     },
+     {
+          "id": "5c6ad3be7c78d69471000021",
+          "body": "Are there tools for visualizing and processing long-read sequencing data?",
+          "type": "yesno",
+          "documents": [
+               "29547981",
+               "29545787"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29547981",
+                    "text": "NanoPack: visualizing and processing long-read sequencing data.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29547981",
+                    "text": "Summary: Here we describe NanoPack, a set of tools developed for visualization and processing of long-read sequencing data from Oxford Nanopore Technologies and Pacific Biosciences.",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29547981",
+                    "text": "Availability and implementation: The NanoPack tools are written in Python3 and released under the GNU GPL3.0 License.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29547981",
+                    "text": "Supplementary information: Supplementary data are available at Bioinformatics online.",
+                    "chunk": 5
+               },
+               {
+                    "pmid": "29547981",
+                    "text": "The scripts are compatible with Linux, Mac OS and the MS Windows 10 subsystem for Linux and are available as a graphical user interface, a web service at http://nanoplot.bioinf.be and command line tools.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29547981",
+                    "text": "The source code can be found at https://github.com/wdecoster/nanopack, together with links to separate scripts and their documentation.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29545787",
+                    "text": "BURRITO: An Interactive Multi-Omic Tool for Visualizing Taxa-Function Relationships in Microbiome Data.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29545787",
+                    "text": "The abundance of both taxonomic groups and gene categories in microbiome samples can now be easily assayed via various sequencing technologies, and visualized using a variety of software tools.",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29545787",
+                    "text": "However, the assemblage of taxa in the microbiome and its gene content are clearly linked, and tools for visualizing the relationship between these two facets of microbiome composition and for facilitating exploratory analysis of their co-variation are lacking.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29545787",
+                    "text": "Here we introduce",
+                    "chunk": 3
+               }
+          ],
+          "exact_answer": "Yes",
+          "ideal_answer": "NanoPack is a suite of tools designed for visualizing and processing long-read sequencing data from Oxford Nanopore Technologies and Pacific Biosciences."
+     },
+     {
+          "id": "5c890c3375a4a5d21900000e",
+          "body": "Can oleuropein aglycone interfere with amyloid aggregation?",
+          "type": "yesno",
+          "documents": [
+               "29611693",
+               "29571746"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29571746",
+                    "text": "Oleuropein aglycone: A polyphenol with different targets against amyloid toxicity.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29571746",
+                    "text": "It has been reported that the aglycone form of Oleuropein (OleA) interferes in vitro and in vivo with amyloid aggregation of a number of proteins/peptides involved in amyloid, particularly neurodegenerative, diseases avoiding the growth of toxic oligomers and displaying protection against cognitive deterioration.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29571746",
+                    "text": "Oleuropein, a phenolic secoiroid glycoside, is the main polyphenol in the olive oil.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29571746",
+                    "text": "METHODS: In this study, we carried out a cellular and biophysical study on the relationships between the effects of OleA on the aggregation and cell interactions of the D76N β2-microglobulin (D76N b2m) variant associated with a familial form of systemic amyloidosis with progressive bowel dysfunction and extensive visceral amyloid deposits.",
+                    "chunk": 5
+               },
+               {
+                    "pmid": "29571746",
+                    "text": "BACKGROUND: Many data highlight the benefits of the Mediterranean diet and its main lipid component, extra-virgin olive oil (EVOO).",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29571746",
+                    "text": "EVOO contains many phenolic compounds that have been found effective against several aging- and lifestyle-related diseases, including neurodegeneration.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29571746",
+                    "text": "GENERAL SIGNIFICANCE: The data provided in the present article focus on OleA protection, featuring this polyphenol as a promising plant molecule useful against amyloid diseases.",
+                    "chunk": 8
+               },
+               {
+                    "pmid": "29571746",
+                    "text": "RESULTS: Our results indicate that OleA protection against D76N b2m cytotoxicity results from i) a modification of the conformational and biophysical properties of its amyloid fibrils; ii) a modification of the cell bilayer surface properties of exposed cells.",
+                    "chunk": 6
+               },
+               {
+                    "pmid": "29571746",
+                    "text": "CONCLUSIONS: This study reveals that OleA remodels not only D76N b2m aggregates but also the cell membrane interfering with the misfolded proteins-cell membrane association, in most cases an early event triggering amyloid-mediated cytotoxicity.",
+                    "chunk": 7
+               },
+               {
+                    "pmid": "29611693",
+                    "text": "Lipid-Modified Graphene-Transistor Biosensor for Monitoring Amyloid-β Aggregation.",
+                    "chunk": 0
+               }
+          ],
+          "exact_answer": "Yes",
+          "ideal_answer": "Oleuropein aglycone interferes with amyloid aggregation of proteins/peptides involved in amyloid diseases."
+     },
+     {
+          "id": "5c93e8bdecadf2e73f00001c",
+          "body": "Which syndrome is associated to SAMHD1 gene mutations?",
+          "type": "factoid",
+          "documents": [
+               "29610582",
+               "29583030",
+               "29594836"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29583030",
+                    "text": "Its emerging role as an effector of innate immunity is affirmed by mutations in the SAMHD1 gene that cause the severe autoimmune disease, Aicardi-Goutieres syndrome (AGS) and that are linked to cancer.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29583030",
+                    "text": "Additionally, SAMHD1 functions as a restriction factor for retroviruses, such as HIV.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29583030",
+                    "text": "SAMHD1: Recurring roles in cell cycle, viral restriction, cancer, and innate immunity.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29583030",
+                    "text": "Here, we review the current biochemical and biological properties of the enzyme including its structure, activity, and regulation by post-translational modifications in the context of its cellular function.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29594836",
+                    "text": "Twenty SAMHD1 gene variants have been discovered and in this work, a structural characterization of the SAMHD1 Aicardi-Goutières Arg145Gln mutant is reported by classical molecular dynamics simulation.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29594836",
+                    "text": "This disease is caused by mutations in seven different genes encoding proteins implicated in the metabolism of nucleic acids, including SAMHD1.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29583030",
+                    "text": "We outline open questions regarding the biology of SAMHD1 whose answers will be important for understanding its function as a regulator of cell cycle progression, genomic integrity, and in autoimmunity.",
+                    "chunk": 5
+               },
+               {
+                    "pmid": "29583030",
+                    "text": "Sterile alpha motif and histidine-aspartic acid domain-containing protein 1 (SAMHD1) is a deoxynucleotide triphosphate (dNTP) hydrolase that plays an important role in the homeostatic balance of cellular dNTPs.",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29594836",
+                    "text": "Aicardi-Goutières syndrome, a rare genetic disorder characterized by calcification of basal ganglia, results in psychomotor delays and epilepsy states from the early months of children life.",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29610582",
+                    "text": "In patients, inactivating mutations in  RESULTS: Here, we show that SAMHD1 inhibits the replication of L1 and other endogenous retroelements in cycling cells.",
+                    "chunk": 2
+               }
+          ],
+          "exact_answer": "Aicardi-Goutieres syndrome",
+          "ideal_answer": "Mutations in the SAMHD1 gene are associated with Aicardi-Goutieres syndrome (AGS), a severe autoimmune disease."
+     },
+     {
+          "id": "5e2dadcffbd6abf43b000011",
+          "body": "What are the most common side effects of amantadine ER?",
+          "type": "list",
+          "documents": [
+               "29550414",
+               "29564954"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29564954",
+                    "text": "The most common side effects are hallucination, dizziness, orthostatic hypotension and pedal edema.",
+                    "chunk": 7
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "Extended-release amantadine (amantadine ER) is the first approved medication for the treatment of dyskinesia.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "This review discusses the safety and efficacy of amantadine ER in dyskinesia in PD patients.",
+                    "chunk": 8
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "Amantadine ER reduces the severity and duration of dyskinesia during the day, reduces OFF time and increases ON time without troublesome dyskinesia.",
+                    "chunk": 6
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "Levodopa is the most efficacious treatment for Parkinson's disease (PD).",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "The role of extended-release amantadine for the treatment of dyskinesia in Parkinson's disease patients.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "Long-term treatment with levodopa is limited due to dyskinesia.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "Dyskinesia in PD can be socially and functionally disabling.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "When it is given at bedtime, it reaches plasma concentration approximately twice the level achieved by amantadine immediate release.",
+                    "chunk": 5
+               },
+               {
+                    "pmid": "29550414",
+                    "text": "This is a case of a 14-year-old male with a history of brain tumor that developed corneal edema after initiation of amantadine, a rare but documented side effect of this medication.",
+                    "chunk": 2
+               }
+          ],
+          "exact_answer": [
+               [
+                    "hallucination"
+               ],
+               [
+                    "dizziness"
+               ],
+               [
+                    "orthostatic hypotension"
+               ],
+               [
+                    "pedal edema"
+               ],
+               [
+                    "corneal edema"
+               ]
+          ],
+          "ideal_answer": "The most common side effects of amantadine ER include hallucination, dizziness, orthostatic hypotension, and pedal edema. Additionally, corneal edema has been documented as a rare side effect. Amantadine ER is used to treat dyskinesia in Parkinson's disease patients, reducing the severity and duration of dyskinesia during the day, reducing OFF time, and increasing ON time without troublesome dyskinesia."
+     },
+     {
+          "id": "5e2db15cfbd6abf43b000014",
+          "body": "Has amantadine ER been approved by the FDA?",
+          "type": "yesno",
+          "documents": [
+               "29610284",
+               "29564954"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29564954",
+                    "text": "Extended-release amantadine (amantadine ER) is the first approved medication for the treatment of dyskinesia.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "This review discusses the safety and efficacy of amantadine ER in dyskinesia in PD patients.",
+                    "chunk": 8
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "Amantadine ER reduces the severity and duration of dyskinesia during the day, reduces OFF time and increases ON time without troublesome dyskinesia.",
+                    "chunk": 6
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "The role of extended-release amantadine for the treatment of dyskinesia in Parkinson's disease patients.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "Long-term treatment with levodopa is limited due to dyskinesia.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "Dyskinesia in PD can be socially and functionally disabling.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "The most common side effects are hallucination, dizziness, orthostatic hypotension and pedal edema.",
+                    "chunk": 7
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "Levodopa is the most efficacious treatment for Parkinson's disease (PD).",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "When it is given at bedtime, it reaches plasma concentration approximately twice the level achieved by amantadine immediate release.",
+                    "chunk": 5
+               },
+               {
+                    "pmid": "29610284",
+                    "text": "In 2017, the FDA approved 12 novel cancer drugs.",
+                    "chunk": 1
+               }
+          ],
+          "exact_answer": "Yes",
+          "ideal_answer": "Extended-release amantadine is the first approved medication for the treatment of dyskinesia."
+     },
+     {
+          "id": "5e2dad57fbd6abf43b000010",
+          "body": "Is amantadine ER the first approved treatment for akinesia?",
+          "type": "yesno",
+          "documents": [
+               "29550414",
+               "29564954"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29564954",
+                    "text": "Extended-release amantadine (amantadine ER) is the first approved medication for the treatment of dyskinesia.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "This review discusses the safety and efficacy of amantadine ER in dyskinesia in PD patients.",
+                    "chunk": 8
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "Amantadine ER reduces the severity and duration of dyskinesia during the day, reduces OFF time and increases ON time without troublesome dyskinesia.",
+                    "chunk": 6
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "The role of extended-release amantadine for the treatment of dyskinesia in Parkinson's disease patients.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "Long-term treatment with levodopa is limited due to dyskinesia.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "Levodopa is the most efficacious treatment for Parkinson's disease (PD).",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "Dyskinesia in PD can be socially and functionally disabling.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "The most common side effects are hallucination, dizziness, orthostatic hypotension and pedal edema.",
+                    "chunk": 7
+               },
+               {
+                    "pmid": "29564954",
+                    "text": "When it is given at bedtime, it reaches plasma concentration approximately twice the level achieved by amantadine immediate release.",
+                    "chunk": 5
+               },
+               {
+                    "pmid": "29550414",
+                    "text": "Amantadine is commonly prescribed as a neurostimulant in patients with brain injuries.",
+                    "chunk": 1
+               }
+          ],
+          "exact_answer": "No",
+          "ideal_answer": "Amantadine ER is the first approved medication for the treatment of dyskinesia, not akinesia."
+     },
+     {
+          "id": "5e369c30b5b409ea53000001",
+          "body": "Describe ChromoTrace",
+          "type": "summary",
+          "documents": [
+               "29522506"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29522506",
+                    "text": "ChromoTrace: Computational reconstruction of 3D chromosome configurations for super-resolution microscopy.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29522506",
+                    "text": "We find that ChromoTrace can assign the 3D positions of the majority of loci with high accuracy and reasonable sensitivity to specific genome sequences.",
+                    "chunk": 9
+               },
+               {
+                    "pmid": "29522506",
+                    "text": "Our reconstruction method, ChromoTrace, uses suffix trees to assign a known linear ordering of in situ probes on the genome to an unknown set of 3D in-situ probe positions in the nucleus from super-resolved images using the known genomic probe spacing as a set of physical distance constraints between probes.",
+                    "chunk": 8
+               },
+               {
+                    "pmid": "29522506",
+                    "text": "Therefore, determining the 3D position of the 6 billion DNA base pairs in each of the 23 chromosomes inside the nucleus of a human cell is a central challenge of biology.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29522506",
+                    "text": "Combined with highly specific, sensitive and multiplexed fluorescence labeling of DNA sequences this opens up the possibility of mapping the 3D path of the genome sequence in situ.",
+                    "chunk": 5
+               },
+               {
+                    "pmid": "29522506",
+                    "text": "Furthermore the location of genomic loci within the nucleus, especially relative to each other and nuclear structures such as the nuclear envelope and nuclear bodies strongly correlates with aspects of function such as gene expression.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29522506",
+                    "text": "Recent advances of super-resolution microscopy in principle enable the mapping of specific molecular features with nanometer precision inside cells.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29522506",
+                    "text": "By simulating appropriate spatial resolution, label multiplexing and noise scenarios we assess our algorithms performance.",
+                    "chunk": 10
+               },
+               {
+                    "pmid": "29522506",
+                    "text": "To test our approach, we develop a method for the simulation of DNA in an idealized human nucleus.",
+                    "chunk": 7
+               },
+               {
+                    "pmid": "29522506",
+                    "text": "Our study shows that it is feasible to achieve genome-wide reconstruction of the 3D DNA path based on super-resolution microscopy images.",
+                    "chunk": 11
+               }
+          ],
+          "exact_answer": null,
+          "ideal_answer": "ChromoTrace is a computational method that reconstructs 3D chromosome configurations from super-resolution microscopy images. It uses suffix trees to assign the known linear ordering of in situ probes on the genome to an unknown set of 3D in-situ probe positions in the nucleus, utilizing the known genomic probe spacing as physical distance constraints. The method has demonstrated high accuracy and reasonable sensitivity in assigning 3D positions to genomic loci and enables genome-wide reconstruction of the 3D DNA path."
+     },
+     {
+          "id": "5e51a7ec6d0a27794100003b",
+          "body": "What is SpatialDE?",
+          "type": "summary",
+          "documents": [
+               "29553579",
+               "29604319"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29553579",
+                    "text": "SpatialDE: identification of spatially variable genes.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29553579",
+                    "text": "SpatialDE also implements 'automatic expression histology', a spatial gene-clustering approach that enables expression-based tissue histology.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29553579",
+                    "text": "Here we describe SpatialDE, a statistical test to identify genes with spatial patterns of expression variation from multiplexed imaging or spatial RNA-sequencing data.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29553579",
+                    "text": "However, methods to analyze these data are not established.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29553579",
+                    "text": "Technological advances have made it possible to measure spatially resolved gene expression at high throughput.",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29604319",
+                    "text": "What matters most - what parents model or what parents eat?",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29604319",
+                    "text": "Associations between parent healthy modeling and parent Healthy Eating Index (HEI) score on child HEI score were examined with linear regression.",
+                    "chunk": 8
+               },
+               {
+                    "pmid": "29604319",
+                    "text": "RESULTS: Parent healthy modeling was significantly correlated with parent intake of healthy foodsLinear regression showed a significant association between parent modeling and child HEI score, even after controlling for parent diet (β = 3.08, SE = 0.87, p < 0.001).",
+                    "chunk": 10
+               },
+               {
+                    "pmid": "29604319",
+                    "text": "PURPOSE: Parents have a strong influence on their children's eating habits; however, researchers struggle to identify which food parenting practices to recommend.",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29604319",
+                    "text": "The sample included parents of preschool-age children from households with at least one overweight parent.",
+                    "chunk": 4
+               }
+          ],
+          "exact_answer": null,
+          "ideal_answer": "SpatialDE is a statistical test designed to identify genes exhibiting spatial patterns of expression variation using data from multiplexed imaging or spatial RNA-sequencing. It also implements 'automatic expression histology', a spatial gene-clustering approach that enables expression-based tissue histology."
+     },
+     {
+          "id": "5e494b0e6d0a277941000007",
+          "body": "List 3 PD-L1 inhibitors on the market as of 2018.",
+          "type": "list",
+          "documents": [
+               "29562480",
+               "29552320"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29552320",
+                    "text": "Furthermore, we found that the medium-PD-L1 and high-PD-L1 groups responded similarly to PD-1/ PD-L1 inhibitors (P = 0.65, ORs = 1.11, 95%CI: 0.69-1.77), while the low-PD-L1 group responded better to PD-1 inhibitors than PD-L1 inhibitors (P = 0.046, ORs = 1.92, 95%CI: 0.98-3.89).",
+                    "chunk": 6
+               },
+               {
+                    "pmid": "29552320",
+                    "text": "RESULTS: We divided patients into three groups according to the percentages of PD-L1-positive cells, namely the low- PD-L1 (PD-L1 < 1%), the medium-PD-L1 (PD-L1 ≥ 1 and < 5%) and the high-PD-L1 (PD-L1 ≥ 5%) groups.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29552320",
+                    "text": "BACKGROUND: Urothelial carcinoma ranks the ninth among malignant cancers.",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29552320",
+                    "text": "Effectiveness of anti-PD-1/PD-L1 antibodies in urothelial carcinoma patients with different PD-L1 expression levels: a meta-analysis.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29552320",
+                    "text": "CONCLUSIONS: Our results suggest that PD-L1 positive patients should be defined as those with ≥ 5% or greaterPD-L1-positive cells.",
+                    "chunk": 7
+               },
+               {
+                    "pmid": "29552320",
+                    "text": "We conducted this study to identify which patients could benefit more from the treatment of programmed death-1 (PD-1)/programmed death-ligand1 (PD-L1) inhibitors.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29552320",
+                    "text": "PD-1 antibodies performed better only in the low-group patients, likely because they could block the interactions of PD-1 with both PD-L1 and PD-L2.",
+                    "chunk": 8
+               },
+               {
+                    "pmid": "29552320",
+                    "text": "MATERIALS AND METHODS: We performed literature searches, combined data from qualified literature and performed comparative analyses on the effectiveness of anti-PD-1/PD-L1 antibodies in patients with different PD-L1 expression levels.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29552320",
+                    "text": "We found that the high-PD-L1 group responded significantly better than other groups (P = 0.0003, ORs = 0.45, 95%CI: 0.29-071; P = 0.0009, ORs = 0.43, 95%CI: 0.25-0.73, for low-PD-L1 and medium-PD-L1 groups, respectively), while the latter two groups responded similarly (P = 0.90, ORs = 1.06, 95%CI: 0.62-1.83) to both PD-1 and PD-L1 inhibitors.",
+                    "chunk": 5
+               },
+               {
+                    "pmid": "29562480",
+                    "text": "[Advances on PD-1/PD-L1 inhibitors in multiple myeloma].",
+                    "chunk": 0
+               }
+          ],
+          "exact_answer": [],
+          "ideal_answer": "The provided context discusses the effectiveness of PD-1 and PD-L1 inhibitors in urothelial carcinoma patients with varying PD-L1 expression levels. It suggests that patients with high PD-L1 expression (≥ 5%) respond better to these inhibitors compared to those with low or medium expression. The context does not, however, list any specific PD-L1 inhibitors that were on the market as of 2018."
+     },
+     {
+          "id": "602c2ade1cb411341a000124",
+          "body": "Are TAMs good anticancer therapeutic targets?",
+          "type": "yesno",
+          "documents": [
+               "29567987",
+               "29567572",
+               "29594035"
+          ],
+          "snippets": [
+               {
+                    "pmid": "29567987",
+                    "text": "Here, we show that TAMs are enriched in gastric cancer.",
+                    "chunk": 2
+               },
+               {
+                    "pmid": "29567987",
+                    "text": "Moreover, TAMs are uniquely immune cells population expressed ApoE in gastric cancer microenvironment.",
+                    "chunk": 6
+               },
+               {
+                    "pmid": "29567987",
+                    "text": "Furthermore, we find that M2-derived exosomes determine the TAMs-mediated pro-migratory activity.",
+                    "chunk": 4
+               },
+               {
+                    "pmid": "29567987",
+                    "text": "However, exosomes derived from M2 macrophages of Apoe",
+                    "chunk": 7
+               },
+               {
+                    "pmid": "29567987",
+                    "text": "Using mass spectrometry, we identify that apolipoprotein E (ApoE) is highly specific and effective protein in M2 macrophages-derived exosomes.",
+                    "chunk": 5
+               },
+               {
+                    "pmid": "29567987",
+                    "text": "However, the detailed mechanisms underlying the pro-metastatic effect of TAMs on gastric cancer are not clearly defined.",
+                    "chunk": 1
+               },
+               {
+                    "pmid": "29567987",
+                    "text": "TAMs are characterized by M2-polarized phenotype and promote migration of gastric cancer cells in vitro and in vivo.",
+                    "chunk": 3
+               },
+               {
+                    "pmid": "29567987",
+                    "text": "Tumor-associated macrophages-derived exosomes promote the migration of gastric cancer cells by transfer of functional Apolipoprotein E. Tumor-associated macrophages (TAMs) are a major component of the tumor microenvironment and have been shown to contribute to tumor aggressiveness.",
+                    "chunk": 0
+               },
+               {
+                    "pmid": "29594035",
+                    "text": "Integrating therapeutic strategies to target TAMs to complement conventional therapies has yielded promising results in preclinical trials and warrants further investigation to determine its translational benefit in human cancer patients.",
+                    "chunk": 6
+               },
+               {
+                    "pmid": "29567572",
+                    "text": "Recently, systemic combination therapy has shown significant promise in inhibiting multiple targets simultaneously yielding high therapeutic competence with lesser side effects.",
+                    "chunk": 9
+               }
+          ],
+          "exact_answer": "Yes",
+          "ideal_answer": "Targeting tumor-associated macrophages (TAMs) as a therapeutic strategy has shown promise in preclinical trials, suggesting they are good anticancer therapeutic targets."
+     }
+]
