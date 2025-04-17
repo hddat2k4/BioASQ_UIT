@@ -85,29 +85,45 @@ def get_prompt_chain(question_type):
     return template | llm | StrOutputParser()
 
 # -- Main QA system --
-def qa_sys(item):
+def qa_sys(item, retrieval_mode="dense", top_k=10, n_terms=5, lambda_param=0.6):
     question = item["question"]
     q_type = item["question_type"]
     qid = item["question_id"]
 
-    # Get documents from retriever manually with score
-    docs = vectorstore.similarity_search(question,alpha = 0, k = 10)
-    que = expand_query(question,docs,n_terms = 5, lambda_param = 0.6)
-    docs = vectorstore.similarity_search(que,alpha = 0, k = 10)
+    # --- Lấy tài liệu ban đầu theo retrieval mode ---
+    if retrieval_mode == "dense":
+        docs = vectorstore.similarity_search(question, alpha=0, k=top_k)
+
+    elif retrieval_mode == "bm25":
+        docs = vectorstore.similarity_search_bm25(question, k=top_k)
+
+    elif retrieval_mode == "hybrid":
+        # Bước 1: Lấy tài liệu initial theo dense
+        dense_docs = vectorstore.similarity_search(question, alpha=0, k=top_k)
+
+        # Bước 2: Mở rộng câu hỏi bằng RM3
+        expanded_q = expand_query(question, dense_docs, n_terms=n_terms, lambda_param=lambda_param)
+
+        # Bước 3: Truy xuất lại bằng hybrid
+        docs = vectorstore.similarity_search(expanded_q, alpha=0.5, k=top_k)  # alpha có thể điều chỉnh cho hybrid
+
+    else:
+        raise ValueError(f"Unsupported retrieval_mode: {retrieval_mode}")
+
+    # --- Trích xuất đoạn văn và context ---
     snippets, doc_id = extract_snippets(docs)
     context = extract_context(docs)
 
-    # Build prompt input
+    # --- Xây dựng đầu vào prompt ---
     chain_input = {
         "question": question,
         "context": context
     }
 
-    # Get LLM answer
     rag_chain = get_prompt_chain(q_type)
     response = rag_chain.invoke(chain_input)
 
-    # Parse string response into dict (assumes valid JSON)
+    # --- Xử lý kết quả ---
     try:
         if isinstance(response, str):
             cleaned = clean_output(response)
@@ -125,11 +141,11 @@ def qa_sys(item):
         "body": question,
         "type": q_type,
         "documents": doc_id,
-        # "snippets": [i for i in snippets if i['score']>=0.4],   # use this one if you wanna get snippet by score
-        "snippets" : snippets, 
+        "snippets": snippets,
         "exact_answer": parsed.get("exact_answer"),
         "ideal_answer": parsed.get("ideal_answer")
     }
+
 
 
 ## -- Retrieve docs --
