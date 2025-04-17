@@ -2,6 +2,7 @@ import weaviate, torch, os, json, re
 from rm3 import expand_query
 from prompt import get_prompt
 from dotenv import load_dotenv
+from utils import model
 from langchain_weaviate.vectorstores import WeaviateVectorStore
 from sentence_transformers import SentenceTransformer
 from langchain.embeddings.base import Embeddings
@@ -12,7 +13,7 @@ load_dotenv()
 
 # -- Load LLM --
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.0-flash",
+    model=model.llm_model_name,
     google_api_key=os.getenv("GOOGLE_API_KEY")
 )
 
@@ -29,7 +30,7 @@ class SentenceTransformerEmbeddings(Embeddings):
         return self.model.encode(text, show_progress_bar=False, convert_to_numpy=True).tolist()
 
 # -- Load model --
-model_name = "pritamdeka/S-PubMedBert-MS-MARCO"
+model_name = model.embed_model_name
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 raw_model = SentenceTransformer(model_name, device=device)
 embeddings = SentenceTransformerEmbeddings(raw_model)

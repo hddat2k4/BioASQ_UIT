@@ -4,6 +4,7 @@ langchain-weaviate
 langchain_google_genai
 nltk
 python-dotenv
+rouge-score
 sentence-transformers
 torch
 transformers
