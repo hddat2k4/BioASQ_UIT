@@ -99,8 +99,9 @@ def evaluate_output(predictions, gold_data, k=5):
             "labels": [], "preds": [], "correct": 0, "count": 0
         }
     }
-
+    # print(predictions)
     for pred in predictions:
+        # print(pred['type'])
         gold = next((g for g in gold_data if g["id"] == pred["id"]), None)
         if not gold:
             continue
@@ -116,6 +117,9 @@ def evaluate_output(predictions, gold_data, k=5):
             metrics[q_type]["preds"].append(pred_ans)
             metrics[q_type]["labels"].append(gold_ans)
             metrics[q_type]["count"] += 1
+            if q_type == 'factoid':
+                if [str(pred_ans)] == gold_ans:
+                    metrics[q_type]["correct"] += 1    
             if pred_ans == gold_ans:
                 metrics[q_type]["correct"] += 1
 
@@ -235,26 +239,35 @@ def extract_common_fields(gold_item, pred_item):
 
 
 # --- Đánh giá ---
-retrieval_modes = ["dense", "hybrid", "bm25"]
-for retrieval_mode in retrieval_modes:
-    
-    # --- Đường dẫn file ---
-    predictions_path = os.path.join(current_dir, 'testcase', f'predictions_{retrieval_mode}.json')
-    gold_data_path = os.path.join(current_dir, 'testcase', 'gold_data.json')
 
-    # --- Load dữ liệu ---
-    with open(predictions_path, "r", encoding="utf-8") as f:
-        predictions = json.load(f)
-    with open(gold_data_path, "r", encoding="utf-8") as f:
-        gold_data = json.load(f)
+retrieval_modes = ["bm25"]
+def all_evaluation(retrieval_modes="bm25", log=True, excel=True):
+    for retrieval_mode in retrieval_modes:
         
-    metrics = evaluate_output(predictions, gold_data, k=5)
+        # --- Đường dẫn file ---
+        predictions_path = os.path.join(current_dir, 'testcase', f'predictions_{retrieval_mode}.json')
+        gold_data_path = os.path.join(current_dir, 'testcase', 'gold_data.json')
 
-    # --- In kết quả ---
-    # print(f"{'Metric':<35} {'Score':>10}")
-    # print("-" * 47)
+        # --- Load dữ liệu ---
+        with open(predictions_path, "r", encoding="utf-8") as f:
+            predictions = json.load(f)
+        with open(gold_data_path, "r", encoding="utf-8") as f:
+            gold_data = json.load(f)
+            
+        metrics = evaluate_output(predictions, gold_data, k=5)
 
-    # for k, v in metrics.items():
-    #     print(f"{model.embed_model_name} - {model.llm_model_name} - {retrieval_mode}: {k:<35} {v:>10.4f}")
+        if log: 
+            # --- In kết quả ---
+            print(f"{'Metric':<35} {'Score':>10}")
+            print("-" * 47)
 
-    save_results_to_excel(metrics, model.embed_model_name, model.llm_model_name, retrieval_mode)
+            for k, v in metrics.items():
+                print(f"{model.embed_model_name} - {model.llm_model_name} - {retrieval_mode}: {k:<35} {v:>10.4f}")
+
+        if excel:
+            save_results_to_excel(metrics, model.embed_model_name, model.llm_model_name, retrieval_mode)
+
+
+####################################################################################################################
+retrieval_modes = ["dense", "hybrid", "bm25"]
+all_evaluation(retrieval_modes=retrieval_modes, log=True, excel=True)
