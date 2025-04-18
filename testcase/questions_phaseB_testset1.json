@@ -1,0 +1,427 @@
+[
+  {
+    "question_id": "67d74cde18b1e36f2e00003c",
+    "question": "Describe RankMHC",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "65f7741fc4010b4d78000027",
+    "question": "What proportion of colorectal cancer cases are not assignable to any of the consensus molecular subtype (CMS) groups?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67cc973e81b1027333000011",
+    "question": "Please list the short half life Phosphodiesterase 5 inhibitors.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d722e818b1e36f2e000036",
+    "question": "Pathophysiology of irritable bowel syndrome (IBS).",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67da17c918b1e36f2e000055",
+    "question": "What is the role of the receptor tyrosine kinase AXL in malignancy?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "66301d1d187cba990d000026",
+    "question": "Are respiratory measurements correlated with disease severity in Duchenne Muscular Dystrophy?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67d3518718b1e36f2e000008",
+    "question": "Which disease is caused by heterozygous UCHL1 loss-of-function variants?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "662154f0b9f8b89d7e000009",
+    "question": "What is the most appropriate systemic treatment for conversion therapy in colorectal cancer with potentially resectable liver metastasis?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67c847f581b1027333000003",
+    "question": "Is age an underlying factor in the eye disease AMD?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67d7fe2618b1e36f2e000044",
+    "question": "Vector of zika virus.",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67d7503018b1e36f2e00003e",
+    "question": "What are the main transcription factors driving the mesenchymal-like (MES-like) state of glioblastoma multiforme?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d34fb318b1e36f2e000007",
+    "question": "Which role does AAAGG have in RFC1 repeat expansions?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "662fc277187cba990d000013",
+    "question": "Does the consensus molecular subtype (CMS) classification for colorectal cancer any use in routine clinical practice?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67cddce881b102733300001c",
+    "question": "Please list major complications of Clostridum Difficile infection.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d43cd218b1e36f2e000011",
+    "question": "Symptoms of polycystic ovarian syndrome.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d9f6a418b1e36f2e000051",
+    "question": "What are the lineage transcription factors of oligodendrocyte progenitor cells (OPCs)?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d7531018b1e36f2e000041",
+    "question": "Data from which clinical trials have been used to demonstrate use of knowledge graphs for NSCLC survival prediction?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "660999a0fdcbea915f00001a",
+    "question": "What are the colorectal surgical options for patients with Familial Polyposis?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67c7708481b1027333000002",
+    "question": "Is mucopolysaccharidosis-plus syndrome (MPSPS) a X-linked disease?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67d7201b18b1e36f2e00002c",
+    "question": "Indications of cesarean section.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67da148418b1e36f2e000054",
+    "question": "What are the main transcriptional cell states found in melanoma?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d3434d18b1e36f2e000002",
+    "question": "Which biomedical challenge has been designed to facilitate interaction between biomedical experts and automated question-answering systems in order to promote COVID-19 research?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "662fc6aa187cba990d000017",
+    "question": "Why is Trifluridine/Tipiracil more active than other fluorpyrimidines in colorectal cancer patients?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67cc89fa81b102733300000c",
+    "question": "Is the inactivation of the X chromsome linked to cognition?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67d4354518b1e36f2e000010",
+    "question": "Prevalence of Premenstrual Dysphoric Disorder",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67d74a9b18b1e36f2e00003a",
+    "question": "Are transcription factors of the GATA family found in the brain?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67d41b8518b1e36f2e00000d",
+    "question": "Is there any role between AGRN and Myasthenia gravis?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67cdbe0c81b1027333000019",
+    "question": "Please list the 4 problems that are found in the tetrology of Fallot.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d7238518b1e36f2e000038",
+    "question": "Regarding genetic transmission of bipolar disorder, has any specific gene/mutation been identified?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67d74b0418b1e36f2e00003b",
+    "question": "How does hypoxia influence the cell states of glioblastoma multiforme (GBM)?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67d496ed18b1e36f2e000019",
+    "question": "What's the increase in CORE profiles in JASPAR 2024 compared to the previous version?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67cdca3881b102733300001b",
+    "question": "What is the mode of action for baclofen?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67d6bf9a18b1e36f2e000023",
+    "question": "Adverse effects of metformin.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67c7392981b1027333000001",
+    "question": "What are the main cell states of glioblastoma multiforme (GBM)?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d34ad518b1e36f2e000005",
+    "question": "Is high WEE1 expression linked to PARP inhibition resistance?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67cc9e6381b1027333000016",
+    "question": "Please list the surgical treatments for Pilomatrix carcinoma.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d7fe1718b1e36f2e000043",
+    "question": "Vector of dengue infection.",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67da131f18b1e36f2e000053",
+    "question": "Is there a shift in the cell states of glioblastoma during recurrence?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67d45d5818b1e36f2e000012",
+    "question": "In which population has it been described an association between the CUBN gene and T2DM genetic susceptibility?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67cde99581b102733300001f",
+    "question": "Can stem cell therapies be used to treat xerostomia",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67d6bda918b1e36f2e000021",
+    "question": "What is the cause of African trypanosomiasis?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67d7506e18b1e36f2e00003f",
+    "question": "What is the consensus binding site of the TEAD transcription factors?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67d4854918b1e36f2e000014",
+    "question": "Describe Variant Ranker",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67cec6e781b1027333000021",
+    "question": "Is creatinine usually elevated in Drug-induced intestinal neuropathy(DAIN)?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67d721d118b1e36f2e000031",
+    "question": "Are systemic beta lactams considered harmful to the human microbiome?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67da0c0f18b1e36f2e000052",
+    "question": "What is the most common EGFR mutation in glioblastoma multiforme?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67d486e118b1e36f2e000015",
+    "question": "Which cardiovascular events are associated with ALOX12 gene polymorphisms?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67cc9bef81b1027333000013",
+    "question": "What is DRESS in the context of drug therapy?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67d430f918b1e36f2e00000f",
+    "question": "Adverse effects of statins.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d3460218b1e36f2e000004",
+    "question": "Describe oncoEnrichR",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67cc9ca681b1027333000014",
+    "question": "What are the treatments for endometrioma/endometriosis?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d7fee818b1e36f2e000048",
+    "question": "Association between hypothyroidism and depression.",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67d48f6c18b1e36f2e000017",
+    "question": "Which computational method exists for prediction of transcriptional condensate-associated genomic regions?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67cf221a81b1027333000022",
+    "question": "What tissue would be used to derive  Wharton's Jelly Mesenchymal Stem Cells?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67d6c1bb18b1e36f2e000029",
+    "question": "Causes of infectious myocardiopathy.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d49ade18b1e36f2e00001b",
+    "question": "What's the effect of germline-mediated immunoediting?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67cc94f681b102733300000e",
+    "question": "Please list diseases that can be treated with MSCs, Human Mesenchymal Stem cells",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d723d918b1e36f2e000039",
+    "question": "Are there biomarkers of depression?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67d34e2518b1e36f2e000006",
+    "question": "What is caused by Biallelic CRELD1 variants?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67cc960381b102733300000f",
+    "question": "What are desflurane and sevoflurane?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67d7232418b1e36f2e000037",
+    "question": "Are there inflammatory markers of dysmenorrhea?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67d751e418b1e36f2e000040",
+    "question": "Which protein is silencing MIR139 in order to promote AML oncogenesis?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67cc97c481b1027333000012",
+    "question": "On what part of the body is Fontan Palliation(AKA Fontan proceedure) performed?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67d6b4e218b1e36f2e00001e",
+    "question": "Is childhood asthma more common in highly polluted areas?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67d4161318b1e36f2e00000a",
+    "question": "Does nucleosomal DNA have topological memory?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67c9e84181b1027333000008",
+    "question": "What cellular process is Listeriolysin associated with?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67d7203018b1e36f2e00002d",
+    "question": "Estimated prevalence of postpartum psychosis.",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67d497c418b1e36f2e00001a",
+    "question": "What's the effect of liver RBFOX2?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67cc826c81b102733300000b",
+    "question": "Is Geographic Atrophy(GA) found in the hand or foot?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67d7fe6a18b1e36f2e000046",
+    "question": "Manifestations of herpes genital infection.",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67d352e918b1e36f2e000009",
+    "question": "What is caused by heterozygous loss of function SPTAN1?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67cc969581b1027333000010",
+    "question": "Whats is the effect of berberine in ischemic stroke?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67d7fe9318b1e36f2e000047",
+    "question": "Association between eating disorders and ADHD.",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67d418f418b1e36f2e00000c",
+    "question": "What is the association of ORM1 and cell-free DNA?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67cc9d4c81b1027333000015",
+    "question": "Are ameleographics (AKA tooth prints) useful for forensic identification?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "67d81c7218b1e36f2e00004d",
+    "question": "Characteristics of prion diseases.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d4903418b1e36f2e000018",
+    "question": "Which gene shapes the 3D enhancer network of the developing T cell genome?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67c9e48f81b1027333000005",
+    "question": "How is a  neoantigen created?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67d7219018b1e36f2e000030",
+    "question": "Causes of sudden deafness.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67d74dd718b1e36f2e00003d",
+    "question": "Which types of data does the EURO-NMD registry capture?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "67cdbdb981b1027333000018",
+    "question": "What tissue is the origin of adnexal masses.",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67d7228818b1e36f2e000034",
+    "question": "Mean survival after a diagnosis of multiple sclerosis.",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67d49cf318b1e36f2e00001c",
+    "question": "Describe the SEQUOIA tool for predicting cancer transcriptomics profiles from histology images",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "67c9e75881b1027333000006",
+    "question": "What is the function of CD47",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "67d6c10618b1e36f2e000027",
+    "question": "Is the use of surfactant restricted to neonatology?",
+    "question_type": "yesno"
+  }
+]

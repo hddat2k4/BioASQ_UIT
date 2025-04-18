@@ -32,6 +32,8 @@ import difflib
 import nltk
 import json
 import os
+import pandas as pd
+from datetime import datetime
 from sklearn.metrics import precision_recall_fscore_support
 from rouge_score import rouge_scorer
 from collections import defaultdict
@@ -39,6 +41,7 @@ from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 from utils import model
 
 nltk.download("punkt")
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
 def normalize_text(text):
     if isinstance(text, str):
@@ -136,8 +139,8 @@ def evaluate_output(predictions, gold_data, k=5):
             gold_docs = [normalize_text(doc[0]).lower() for doc in gold_filtered.get("exact_answer", [])]
 
             # Print to debug
-            print(f"pred_docs: {pred_docs}")
-            print(f"gold_docs: {gold_docs}")
+            # print(f"pred_docs: {pred_docs}")
+            # print(f"gold_docs: {gold_docs}")
 
             # Jaccard similarity
             metrics["list"]["jaccard_doc"].append(jaccard_similarity(pred_docs, gold_docs))
@@ -206,31 +209,52 @@ def evaluate_output(predictions, gold_data, k=5):
 
     return result
 
+import pandas as pd
+
+def save_results_to_excel(result_dict, embed_model, llm_model, retrieval_mode, output_path="results.xlsx"):
+    df = pd.DataFrame([{
+        "embed_model": embed_model,
+        "llm_model": llm_model,
+        "retrieval_mode": retrieval_mode,
+        **result_dict
+    }])
+
+    if os.path.exists(output_path):
+        # Nếu đã tồn tại, thì append vào
+        existing_df = pd.read_excel(output_path)
+        df = pd.concat([existing_df, df], ignore_index=True)
+
+    df.to_excel(output_path, index=False)
+    print(f"[✔] Kết quả đã được lưu vào {output_path}")
+
 def extract_common_fields(gold_item, pred_item):
     common_keys = set(gold_item.keys()) & set(pred_item.keys())
     gold_filtered = {k: gold_item[k] for k in common_keys}
     pred_filtered = {k: pred_item[k] for k in common_keys}
     return gold_filtered, pred_filtered
 
-# --- Cấu hình ---
-retrieval_mode = "bm25"  # "dense", "bm25", "hybrid"
-
-# --- Đường dẫn file ---
-current_dir = os.path.dirname(os.path.abspath(__file__))
-predictions_path = os.path.join(current_dir, 'testcase', f'predictions_{retrieval_mode}.json')
-gold_data_path = os.path.join(current_dir, 'testcase', 'gold_data.json')
-
-# --- Load dữ liệu ---
-with open(predictions_path, "r", encoding="utf-8") as f:
-    predictions = json.load(f)
-with open(gold_data_path, "r", encoding="utf-8") as f:
-    gold_data = json.load(f)
 
 # --- Đánh giá ---
-metrics = evaluate_output(predictions, gold_data, k=5)
+retrieval_modes = ["dense", "hybrid", "bm25"]
+for retrieval_mode in retrieval_modes:
+    
+    # --- Đường dẫn file ---
+    predictions_path = os.path.join(current_dir, 'testcase', f'predictions_{retrieval_mode}.json')
+    gold_data_path = os.path.join(current_dir, 'testcase', 'gold_data.json')
 
-# --- In kết quả ---
-print(f"{'Metric':<35} {'Score':>10}")
-print("-" * 47)
-for k, v in metrics.items():
-    print(f"{model.embed_model_name} - {model.llm_model_name} - {retrieval_mode}: {k:<35} {v:>10.4f}")
+    # --- Load dữ liệu ---
+    with open(predictions_path, "r", encoding="utf-8") as f:
+        predictions = json.load(f)
+    with open(gold_data_path, "r", encoding="utf-8") as f:
+        gold_data = json.load(f)
+        
+    metrics = evaluate_output(predictions, gold_data, k=5)
+
+    # --- In kết quả ---
+    # print(f"{'Metric':<35} {'Score':>10}")
+    # print("-" * 47)
+
+    # for k, v in metrics.items():
+    #     print(f"{model.embed_model_name} - {model.llm_model_name} - {retrieval_mode}: {k:<35} {v:>10.4f}")
+
+    save_results_to_excel(metrics, model.embed_model_name, model.llm_model_name, retrieval_mode)

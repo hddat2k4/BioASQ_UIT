@@ -33,7 +33,5 @@ def feed_llm(isMultiple=False, retrieval_mode="dense"):
         print(json.dumps(result, indent=5, ensure_ascii=False))
     client.close()
 
-
 ##### True neu muon tra loi full 16 cau hoi trong testcase/questions.json, false neu chi muon tra loi 1 cau hoi mau
-
-feed_llm(isMultiple=True, retrieval_mode="hybrid")
+feed_llm(isMultiple=True, retrieval_mode="bm25")
