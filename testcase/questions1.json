@@ -1,0 +1,527 @@
+[
+  {
+    "question_id": "5a9e202bde7cb99d40000002",
+    "question": "Which method is Proseek based on?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c65b7657c78d6947100000c",
+    "question": "Which Lisp framework has been developed for image processing?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5be47fcb133db5eb7800001a",
+    "question": "Which member of the human mycobiota is associated to atherosclerosis?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c59872b86df2b9174000017",
+    "question": "Which tool has been developed for coverage calculation for genomes?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5be48282133db5eb7800001b",
+    "question": "Is there any association between the human gut microbiome and depression?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c531e887e3cb0e231000018",
+    "question": "Are ultraconserved enhancers important for normal development?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c00f38e133db5eb78000023",
+    "question": "Does vesatolimod inhibit TLR7?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c5f21a81a4c55d80b00001c",
+    "question": "Is selenocysteine an aminoacid?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c580aff07647bbc4b00001a",
+    "question": "Which ultraconserved element is associated with Embryonic Stem Cells (ESC) self-renewal?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c54600207647bbc4b000004",
+    "question": "What is DiseaseEnhancer?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5c76cea17c78d694710000a7",
+    "question": "Is ADP-ribosylation a PTM?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c6be8f07c78d69471000032",
+    "question": "Which database has been developed that contains experimentally-confirmed carbonylated proteins?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c6549e1e842deac67000022",
+    "question": "Can CPX-351 be used for the treatment of tuberculosis?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c641c60e842deac67000013",
+    "question": "Which databases can exchange data using Matchmaker Exchange's API?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "5c643485e842deac67000015",
+    "question": "Are de novo mutations in regulatory elements responsible for neurodevelopmental disorders?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c6548d4e842deac67000020",
+    "question": "What is CPX351?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5c76d0417c78d694710000a8",
+    "question": "What is the cause if the rare disease cystinosis?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c6545bae842deac6700001d",
+    "question": "Which molecular does daratumumab target?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c6aef167c78d69471000023",
+    "question": "Which tool has been developed for GPU-accelerated alignment of bisulfite-treated DNA sequences?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c646fd3e842deac6700001a",
+    "question": "Which disease is gemtuzumab ozogamicin used for?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c6d7bb57c78d6947100003b",
+    "question": "Are there ultraconserved regions in the budding yeast (Saccharomyces cerevisiae)?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c6473b2e842deac6700001b",
+    "question": "Where does gemtuzumab ozogamicin bind?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c65abd17c78d69471000009",
+    "question": "What is the predicted function for TMEM132 family?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c60382ac01990ff41000002",
+    "question": "Describe the 4D-CHAINS algorithm",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5c674aed7c78d69471000019",
+    "question": "Do raspberries improve postprandial glucose and acute and chronic inflammation in adults with type 2 Diabetes?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c6b198f7c78d69471000025",
+    "question": "Is there a deep-learning algorithm for protein solubility prediction?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c6583117c78d69471000002",
+    "question": "Can midostaurin inhibit angiogenesis?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c65901c7c78d69471000008",
+    "question": "Which disease is PGT121 used for?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c6d8f4c7c78d6947100003f",
+    "question": "Describe Canvas SPW",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5c6da11e7c78d69471000042",
+    "question": "Are there tools for reviewing variant calls?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c65468ce842deac6700001e",
+    "question": "Name one CCR4 targeted drug.",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c5b4a941a4c55d80b000002",
+    "question": "Mutations in which gene have been found in patients with the CLAPO syndrome?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c52c8b07e3cb0e23100000c",
+    "question": "What is the contribution of ultraconserved elements in Australasian smurf-weevils?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5c56c5e107647bbc4b000012",
+    "question": "What is CardioClassifier?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5c65484ee842deac6700001f",
+    "question": "Can mogamulizumab be used for the treatment of cutaneous T-cell lymphoma?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c62a276e842deac6700000a",
+    "question": "De novo mutations in which novel genes are involved in systemic lupus erythematosus?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "5c6d97497c78d69471000040",
+    "question": "Are there graph kernel libraries available implemented in JAVA?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c928958ecadf2e73f000017",
+    "question": "List the four advances integrated into the SHERLOCKv2 platform.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "5c61f767e842deac67000007",
+    "question": "Which ploidy-agnostic method has been developed for estimating telomere length from whole genome sequencing data?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c93e5acecadf2e73f00001a",
+    "question": "What is MOV10?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c63286ae842deac6700000e",
+    "question": "List clinical symptoms of the MECOM-associated syndrome",
+    "question_type": "list"
+  },
+  {
+    "question_id": "5c93e6a1ecadf2e73f00001b",
+    "question": "Does the interaction of MOV10 and RNASEH2 promote L1 retrotransposition?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c65ae757c78d6947100000a",
+    "question": "Describe the bartender algorithm",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5c65b2e87c78d6947100000b",
+    "question": "Describe CapSim",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5c6ab4c17c78d6947100001d",
+    "question": "Under which environment does SELANSI run?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c8feae70101eac87000000e",
+    "question": "What are CRISPR-Cas12a proteins?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5c928303ecadf2e73f000014",
+    "question": "What is the difference between the nuclease Cas13a and C2c2",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5c8fee200101eac87000000f",
+    "question": "What is the difference between CRISPR-Cas12a and CRISPR-Cpf1?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c6ad3be7c78d69471000021",
+    "question": "Are there tools for visualizing and processing long-read sequencing data?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c909b6cecadf2e73f000005",
+    "question": "How many pseudokinases are there in the human kinome?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c6d65637c78d69471000038",
+    "question": "Which tool has been developed for visualization of non-covalent contacts?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c9158a5ecadf2e73f000008",
+    "question": "Which malignancies is Keytruda approved for before 2017?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "5c915a8becadf2e73f000009",
+    "question": "Which was the first approved tumor treatment using a common biomarker rather than specified tumor locations in the body?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c8908a475a4a5d21900000c",
+    "question": "Is L-4F an apoE mimetic peptide?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c890ad575a4a5d21900000d",
+    "question": "Which plant does oleuropein originate from?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c890c3375a4a5d21900000e",
+    "question": "Can oleuropein aglycone interfere with amyloid aggregation?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c896f60d558e5f232000003",
+    "question": "What is the indication for KYMRIAH?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c9e766becadf2e73f000038",
+    "question": "Can mitochondria pass through membrane nanotubes?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c896ce0d558e5f232000002",
+    "question": "What is YESCARTA?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5c9ff25eecadf2e73f000043",
+    "question": "Where, in the body, would the Cobb-Stainsby excision arthroplasty be performed?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5ca9f932ecadf2e73f000054",
+    "question": "What are acoustic reported genes used to detect?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5c9162b5ecadf2e73f00000e",
+    "question": "Is ustekinumab a polyclonal antibody?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5cb37f76ecadf2e73f00005c",
+    "question": "Is Pim-1 a protein phosphatase?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5c93e8bdecadf2e73f00001c",
+    "question": "Which syndrome is associated to SAMHD1 gene mutations?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5c990afbecadf2e73f000030",
+    "question": "List proteins with RING domain.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "5c9e738decadf2e73f000037",
+    "question": "Can mitochondria transfer from cell to cell?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5e7744c3835f4e4777000005",
+    "question": "Can leuprorelin acetate be used as androgen deprivation therapy?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5e493a3e6d0a277941000002",
+    "question": "Which lncRNAS are regulated by SAM68?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "5e30b870fbd6abf43b000038",
+    "question": "Which graph database is used by the Reactome graph database?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5e36a718b5b409ea53000004",
+    "question": "Which T-UCR has been implicated in prostate cancer?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5e35d3c6158f994d3a000003",
+    "question": "Is there a role for MRPL53 in cancer?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5e36a4b7b5b409ea53000003",
+    "question": "Does Uc.63+ promote sensitivity to treatment in prostate cancer?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5e7659db835f4e4777000001",
+    "question": "Name two rotavirus vaccines.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "5e52937c6d0a277941000042",
+    "question": "Describe f-scLVM",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5e52a3416d0a277941000043",
+    "question": "What is the purpose of the Unique Connectivity of Uncharged Compounds (UC2) search tool?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5e7745ea835f4e4777000006",
+    "question": "What is the active ingredient of Eligard?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5e776443835f4e4777000008",
+    "question": "Which company produces Eligard?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5e2b00bc76af173751000004",
+    "question": "Which tool exist for predicting drug synergy with deep learning?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5e7f64a5835f4e477700001e",
+    "question": "Can CMB305 be used against sarcomas?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5e2dbd0afbd6abf43b000017",
+    "question": "Is pimavanserin a typical antipsychotic?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5e49c5ee6d0a277941000012",
+    "question": "What is PWMScan?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5e3709a4b5b409ea53000012",
+    "question": "Is there a BRCA mutation analysis in the Greek population?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5e36de90b5b409ea5300000e",
+    "question": "What is the role of the Hof1-Cyk3 interaction in yeast?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5e29f666aa19d74431000001",
+    "question": "Which phosphatase is inhibited by LB-100?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5e2dadcffbd6abf43b000011",
+    "question": "What are the most common side effects of amantadine ER?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "5e35cb27158f994d3a000002",
+    "question": "What are the puQTLs (promoter-usage Quantitative Trait Loci)?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5e2db15cfbd6abf43b000014",
+    "question": "Has amantadine ER been approved by the FDA?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5e46e8c13f5415952900000c",
+    "question": "List types of DNA lesions caused by UV light.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "5e2dad57fbd6abf43b000010",
+    "question": "Is amantadine ER the first approved treatment for akinesia?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5e480ccfd14c9f295d000005",
+    "question": "Is g-H2AX a marker for double strand breaks?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5e2d80cafbd6abf43b00000d",
+    "question": "What is the 4D-CHAINS algorithm?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5e369c30b5b409ea53000001",
+    "question": "Describe ChromoTrace",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5e501d866d0a277941000038",
+    "question": "What is Nextflow?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5e51a7ec6d0a27794100003b",
+    "question": "What is SpatialDE?",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "5e7641a0c6a8763d23000011",
+    "question": "Which was the first cholera vaccine approved in the US?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5e494b0e6d0a277941000007",
+    "question": "List 3 PD-L1 inhibitors on the market as of 2018.",
+    "question_type": "list"
+  },
+  {
+    "question_id": "5e4ada686d0a277941000014",
+    "question": "Which method is behind HipMCL?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "5e500d8c6d0a277941000035",
+    "question": "Is αCGRP a member of the CGRP family?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "5e7f63f5835f4e477700001d",
+    "question": "What does CMB305 contain?",
+    "question_type": "list"
+  },
+  {
+    "question_id": "605fb41094d57fd879000039",
+    "question": "What is caused by a gain-of-function mutation in CLCN2?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "60291a0c1cb411341a00010d",
+    "question": "Describe PWMScan",
+    "question_type": "summary"
+  },
+  {
+    "question_id": "62004357c9dfcb9c09000015",
+    "question": "Does αCGRP have amyloidogenic properties?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "602c2ade1cb411341a000124",
+    "question": "Are TAMs good anticancer therapeutic targets?",
+    "question_type": "yesno"
+  },
+  {
+    "question_id": "605fb19794d57fd879000038",
+    "question": "Which resource is used for visualisation of non-covalent contacts?",
+    "question_type": "factoid"
+  },
+  {
+    "question_id": "6414c5ba690f196b51000007",
+    "question": "Can skin picking phenotype present following methylphenidate treatment?",
+    "question_type": "yesno"
+  }
+]
