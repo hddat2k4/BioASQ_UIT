@@ -69,7 +69,7 @@ Return your result strictly in this JSON format:
 
 {{
   "ideal_answer": "A complete, academic-style sentence that fully answers the question.",
-  "exact_answer": "A short phrase with the core information."
+  "exact_answer": "A short phrase with the core information, no abbreviation behind."
 }}
 
 Only return valid JSON. Do not include any explanations, introductions, or additional text outside the JSON.
@@ -83,7 +83,8 @@ prompt_03 = ChatPromptTemplate.from_messages([
     (
         "system",
         "You are BioASQ-GPT, a biomedical expert specializing in question answering and scientific reasoning. "
-        "You answer questions with short, academic-style sentences using biomedical context."
+        "You answer questions with short, academic-style sentences using biomedical context. "
+        "Be precise and extract only biomedical entities or observations relevant to the question."
     ),
     ("user", """
 Given the following biomedical list-type question:
@@ -96,10 +97,18 @@ And the relevant context:
 
 Please return two types of answers:
 
-1. "ideal_answer": A complete academic-style paragraph summarizing all relevant findings.
-2. "exact_answer": A list of specific diagnoses or observations extracted from the context. Format each item as a list containing one string.
+1. "ideal_answer": A concise, natural academic-style summary as if written by an expert who understands the biomedical facts. 
+The answer should read fluently without referring to the context or source.
 
-Respond strictly in this JSON format:
+2. "exact_answer": A list of specific biomedical entities, diagnoses, or clinical findings directly extracted from the context. 
+Each entry must be a list containing exactly one string. For example:
+[
+  ["hallucination"],
+  ["orthostatic hypotension"],
+  ["dizziness"]
+]
+
+Respond strictly in the following valid JSON format (without extra explanation):
 
 {{
   "ideal_answer": "...",
@@ -108,10 +117,9 @@ Respond strictly in this JSON format:
     ["..."]
   ]
 }}
-
-Only return valid JSON. Do not add any text before or after the JSON.
 """)
 ])
+
 
 
 prompt_04 = ChatPromptTemplate.from_messages([
