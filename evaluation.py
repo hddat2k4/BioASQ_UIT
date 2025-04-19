@@ -39,17 +39,19 @@ from rouge_score import rouge_scorer
 from collections import defaultdict
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 from utils import model
+from unidecode import unidecode
 
 nltk.download("punkt")
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
+
 def normalize_text(text):
     if isinstance(text, str):
-        return text.strip().lower()
+        return unidecode(text.strip().lower())
     elif isinstance(text, list):
-        return [str(t).strip().lower() for t in text]
+        return [unidecode(str(t).strip().lower()) for t in text]
     else:
-        return str(text).strip().lower()
+        return unidecode(str(text).strip().lower())
 
 def jaccard_similarity(set1, set2):
     set1, set2 = set(set1), set(set2)
@@ -88,7 +90,9 @@ def average_precision(predicted, gold):
 def extract_common_fields(gold, pred):
     return gold.get("answers", {}), pred.get("answers", {})
 
-def evaluate_output(predictions, gold_data, k=5):
+from sklearn.preprocessing import MultiLabelBinarizer
+
+def evaluate_output(predictions, gold_data, k=10):
     metrics = {
         "yesno": {"labels": [], "preds": [], "correct": 0, "count": 0},
         "factoid": {"labels": [], "preds": [], "correct": 0, "count": 0},
@@ -99,9 +103,8 @@ def evaluate_output(predictions, gold_data, k=5):
             "labels": [], "preds": [], "correct": 0, "count": 0
         }
     }
-    # print(predictions)
+
     for pred in predictions:
-        # print(pred['type'])
         gold = next((g for g in gold_data if g["id"] == pred["id"]), None)
         if not gold:
             continue
@@ -113,15 +116,21 @@ def evaluate_output(predictions, gold_data, k=5):
         pred_ans = normalize_text(pred_filtered.get("exact_answer", ""))
         gold_ans = normalize_text(gold_filtered.get("exact_answer", ""))
 
-        if q_type in ["yesno", "factoid"]:
-            metrics[q_type]["preds"].append(pred_ans)
-            metrics[q_type]["labels"].append(gold_ans)
+        if q_type == "yesno":
             metrics[q_type]["count"] += 1
-            if q_type == 'factoid':
-                if [str(pred_ans)] == gold_ans:
-                    metrics[q_type]["correct"] += 1    
             if pred_ans == gold_ans:
                 metrics[q_type]["correct"] += 1
+            metrics[q_type]["labels"].append(gold_ans)
+            metrics[q_type]["preds"].append(pred_ans)
+
+        if q_type == "factoid":
+            metrics[q_type]["count"] += 1
+            if not isinstance(gold_ans, list):
+                gold_ans = [gold_ans]
+            if pred_ans in gold_ans:
+                metrics[q_type]["correct"] += 1
+            metrics[q_type]["labels"].append(gold_ans)
+            metrics[q_type]["preds"].append([pred_ans])
 
         if q_type == "summary":
             pred_ideal = normalize_text(pred_filtered.get("ideal_answer", ""))
@@ -138,74 +147,75 @@ def evaluate_output(predictions, gold_data, k=5):
                 metrics["summary"]["fuzzy"].append(fuzzy_match(gold_ideal, pred_ideal))
 
         if q_type == "list":
-            # Get top-k predictions and gold answers
-            pred_docs = [normalize_text(doc[0]).lower() for doc in pred_filtered.get("exact_answer", [])][:k]
-            gold_docs = [normalize_text(doc[0]).lower() for doc in gold_filtered.get("exact_answer", [])]
+            pred_docs = [normalize_text(doc[0]) for doc in (pred_filtered.get("exact_answer") or [])][:k]
+            gold_docs = [normalize_text(doc[0]) for doc in gold_filtered.get("exact_answer", [])]
 
-            # Print to debug
-            # print(f"pred_docs: {pred_docs}")
-            # print(f"gold_docs: {gold_docs}")
-
-            # Jaccard similarity
             metrics["list"]["jaccard_doc"].append(jaccard_similarity(pred_docs, gold_docs))
             metrics["list"]["recall_at_k"].append(len(set(pred_docs) & set(gold_docs)) / len(gold_docs) if gold_docs else 0.0)
             metrics["list"]["precision_at_k"].append(len(set(pred_docs) & set(gold_docs)) / len(pred_docs) if pred_docs else 0.0)
             metrics["list"]["map"].append(average_precision(pred_docs, gold_docs))
 
-            # Snippets (not changing for now)
-            pred_snip = [normalize_text(s["text"]).lower() for s in pred_filtered.get("snippets", [])]
-            gold_snip = [normalize_text(s["text"]).lower() for s in gold_filtered.get("snippets", [])]
+            pred_snip = [normalize_text(s["text"]) for s in pred_filtered.get("snippets", [])]
+            gold_snip = [normalize_text(s["text"]) for s in gold_filtered.get("snippets", [])]
             metrics["list"]["jaccard_snip"].append(jaccard_similarity(pred_snip, gold_snip))
 
-            # Calculate precision, recall, F1 for the list of entities
-            true_positives = len(set(pred_docs) & set(gold_docs))
-            false_positives = len(set(pred_docs) - set(gold_docs))
-            false_negatives = len(set(gold_docs) - set(pred_docs))
-
-            precision = true_positives / (true_positives + false_positives) if (true_positives + false_positives) > 0 else 0
-            recall = true_positives / (true_positives + false_negatives) if (true_positives + false_negatives) > 0 else 0
-            f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
-
-            metrics["list"]["labels"].append(",".join(sorted(gold_docs)))
-            metrics["list"]["preds"].append(",".join(sorted(pred_docs)))
+            metrics["list"]["labels"].append(sorted(gold_docs))
+            metrics["list"]["preds"].append(sorted(pred_docs))
             metrics["list"]["count"] += 1
-            if precision > 0 and recall > 0:  # Checking if there is any positive match
+            if len(set(pred_docs) & set(gold_docs)) > 0:
                 metrics["list"]["correct"] += 1
 
-    # Precision, Recall, F1 for yesno and factoid
     result = {}
-    for qtype in ["yesno", "factoid"]:
-        precision, recall, f1, _ = precision_recall_fscore_support(
-            metrics[qtype]["labels"], metrics[qtype]["preds"], average="macro", zero_division=0
-        )
-        acc = metrics[qtype]["correct"] / metrics[qtype]["count"] if metrics[qtype]["count"] else 0.0
-        result[f"accuracy_exact ({qtype})"] = acc
-        result[f"precision_exact ({qtype})"] = precision
-        result[f"recall_exact ({qtype})"] = recall
-        result[f"f1_exact ({qtype})"] = f1
 
-    # Summary Metrics
+    # yesno
+    precision_yesno, recall_yesno, f1_yesno, _ = precision_recall_fscore_support(
+        metrics["yesno"]["labels"], metrics["yesno"]["preds"], average="macro", zero_division=0
+    )
+    acc_yesno = metrics["yesno"]["correct"] / metrics["yesno"]["count"] if metrics["yesno"]["count"] else 0.0
+    result["accuracy_exact (yesno)"] = acc_yesno
+    result["precision_exact (yesno)"] = precision_yesno
+    result["recall_exact (yesno)"] = recall_yesno
+    result["f1_exact (yesno)"] = f1_yesno
+
+    # factoid
+    all_factoid_labels = set(c for row in metrics["factoid"]["labels"] + metrics["factoid"]["preds"] for c in row)
+    mlb_factoid = MultiLabelBinarizer(classes=sorted(all_factoid_labels))
+    y_true_factoid = mlb_factoid.fit_transform(metrics["factoid"]["labels"])
+    y_pred_factoid = mlb_factoid.transform(metrics["factoid"]["preds"])
+
+    precision_factoid, recall_factoid, f1_factoid, _ = precision_recall_fscore_support(
+        y_true_factoid, y_pred_factoid, average="macro", zero_division=0
+    )
+    acc_factoid = metrics["factoid"]["correct"] / metrics["factoid"]["count"] if metrics["factoid"]["count"] else 0.0
+    result["accuracy_exact (factoid)"] = acc_factoid
+    result["precision_exact (factoid)"] = precision_factoid
+    result["recall_exact (factoid)"] = recall_factoid
+    result["f1_exact (factoid)"] = f1_factoid
+
     result.update({
         "bleu_ideal (summary)": sum(metrics["summary"]["bleu"]) / len(metrics["summary"]["bleu"]) if metrics["summary"]["bleu"] else 0.0,
         "rougeL_ideal (summary)": sum(metrics["summary"]["rouge"]) / len(metrics["summary"]["rouge"]) if metrics["summary"]["rouge"] else 0.0,
         "fuzzy_ideal (summary)": sum(metrics["summary"]["fuzzy"]) / len(metrics["summary"]["fuzzy"]) if metrics["summary"]["fuzzy"] else 0.0,
     })
 
-    # List Metrics
     result.update({
         "jaccard_documents (list)": sum(metrics["list"]["jaccard_doc"]) / len(metrics["list"]["jaccard_doc"]) if metrics["list"]["jaccard_doc"] else 0.0,
         "jaccard_snippets (list)": sum(metrics["list"]["jaccard_snip"]) / len(metrics["list"]["jaccard_snip"]) if metrics["list"]["jaccard_snip"] else 0.0,
         "recall@k_documents (list)": sum(metrics["list"]["recall_at_k"]) / len(metrics["list"]["recall_at_k"]) if metrics["list"]["recall_at_k"] else 0.0,
         "precision@k_documents (list)": sum(metrics["list"]["precision_at_k"]) / len(metrics["list"]["precision_at_k"]) if metrics["list"]["precision_at_k"] else 0.0,
         "MAP_documents (list)": sum(metrics["list"]["map"]) / len(metrics["list"]["map"]) if metrics["list"]["map"] else 0.0,
-
     })
 
-    # Accuracy/precision/recall/f1 for list
+    all_list_labels = set(c for row in metrics["list"]["labels"] + metrics["list"]["preds"] for c in row)
+    mlb_list = MultiLabelBinarizer(classes=sorted(all_list_labels))
+    y_true_list = mlb_list.fit_transform(metrics["list"]["labels"])
+    y_pred_list = mlb_list.transform(metrics["list"]["preds"])
+
     precision_list, recall_list, f1_list, _ = precision_recall_fscore_support(
-        metrics["list"]["labels"], metrics["list"]["preds"], average="macro", zero_division=0
+        y_true_list, y_pred_list, average="macro", zero_division=0
     )
     acc_list = metrics["list"]["correct"] / metrics["list"]["count"] if metrics["list"]["count"] else 0.0
+
     result["accuracy (list)"] = acc_list
     result["precision (list)"] = precision_list
     result["recall (list)"] = recall_list
@@ -246,7 +256,7 @@ def all_evaluation(retrieval_modes="bm25", log=True, excel=True):
         
         # --- Đường dẫn file ---
         predictions_path = os.path.join(current_dir, 'testcase', f'predictions_{retrieval_mode}.json')
-        gold_data_path = os.path.join(current_dir, 'testcase', 'gold_data.json')
+        gold_data_path = os.path.join(current_dir, 'testcase', 'answers1.json')
 
         # --- Load dữ liệu ---
         with open(predictions_path, "r", encoding="utf-8") as f:
