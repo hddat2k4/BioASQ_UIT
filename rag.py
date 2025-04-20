@@ -71,7 +71,7 @@ client = weaviate.connect_to_custom(
         )
     )
 )
-collection = client.collections.get("Pubmedfull")
+collection = client.collections.get("bgebase")   #Pubmedfull
 
 # -- SDK Retrieval Function --
 def retrieve_docs_sdk(query, mode="bm25", top_k=10, alpha=None):

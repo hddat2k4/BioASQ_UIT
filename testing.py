@@ -35,7 +35,7 @@ def feed_llm(isMultiple=False, retrieval_mode="dense", top_k=10):
 
 # ✅ True nếu muốn trả lời tất cả câu hỏi trong testcase/questions1.json
 # ❌ False nếu chỉ muốn test 1 câu hỏi mẫu
-feed_llm(isMultiple=True, retrieval_mode="hybrid", top_k=10)
+feed_llm(isMultiple=True, retrieval_mode="bm25", top_k=10)
 
 # --- Mở rộng nếu cần chạy cả 3 chế độ:
 # if __name__ == "__main__":
