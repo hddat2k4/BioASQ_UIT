@@ -11,7 +11,9 @@ from weaviate.classes.config import (
 client = weaviate.connect_to_local()
 
 # Xoá collection cũ nếu cần
-client.collections.delete("PubMedAbstract")
+if client.collections.exists("PubMedAbstract"):
+    client.collections.delete("PubMedAbstract")
+    print("Xoa thanh cong")
 
 # Tạo schema mới có hỗ trợ hybrid (BM25 + vector)
 client.collections.create(
