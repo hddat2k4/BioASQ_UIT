@@ -279,5 +279,5 @@ def all_evaluation(retrieval_modes="bm25", log=True, excel=True):
 
 
 ####################################################################################################################
-retrieval_modes = ["dense", "hybrid", "bm25"]
+retrieval_modes = ["bm25","dense", "hybrid"]
 all_evaluation(retrieval_modes=retrieval_modes, log=True, excel=True)

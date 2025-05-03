@@ -9,13 +9,13 @@ from weaviate.classes.config import (
 
 # Kết nối tới Weaviate local
 client = weaviate.connect_to_local()
+names = "gist"
 
 # Xoá collection cũ nếu cần
-client.collections.delete("PubMedAbstract")
-
-# Tạo schema mới có hỗ trợ hybrid (BM25 + vector)
+client.collections.delete(names)  #"PubMedAbstract"
+# # # Tạo schema mới có hỗ trợ hybrid (BM25 + vector)
 client.collections.create(
-    name="PubMedAbstract",
+    name=names,
     description="PubMed abstract entries",
     inverted_index_config=Configure.inverted_index(bm25_b=0.75, bm25_k1=1.2),
     vectorizer_config=Configure.Vectorizer.none(),
@@ -29,5 +29,5 @@ client.collections.create(
     ]
 )
 
-print("✅ Created schema 'PubMedAbstract' successfully.")
+print(f"✅ Created schema {names} successfully.")
 client.close()
