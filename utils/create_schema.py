@@ -14,6 +14,7 @@ names = "gist"
 # Xoá collection cũ nếu cần
 client.collections.delete(names)  #"PubMedAbstract"
 # # # Tạo schema mới có hỗ trợ hybrid (BM25 + vector)
+
 client.collections.create(
     name=names,
     description="PubMed abstract entries",
