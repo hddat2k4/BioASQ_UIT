@@ -8,6 +8,6 @@ __pycache__/
 .gz
 .qodo
 web/
-data/
+files/
 evaluation_results.xlsx
-results.xlsx
+evalresults.xlsx
