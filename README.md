@@ -3,8 +3,11 @@
 This repository provides the source code and a small batch of dataset samples used to build a Retrieval-Augmented Generation (RAG) pipeline for biomedical question answering based on the BioASQ 13b challenge.
 
 
-## 📜 Table of Content
+## Table of Content
 - [Introduction](#intro)
+- [Target] (#target)
+- [Main Components](#main)
+
 - [Usage](#usage)
 
 ## Introduction 
@@ -13,13 +16,25 @@ This repository provides the source code and a small batch of dataset samples us
 This project implements a RAG pipeline that combines dense retrieval and generative models to answer biomedical questions. The system is designed to be compatible with the BioASQ 13b benchmark.
 
 
+## Target
+<a name = 'target'> </a>
+
+The main objective is to build a robust and flexible Retrieval-Augmented Generation (RAG) system tailored to biomedical question answering in the BioASQ 13b challenge. This system integrates dense retrieval using vector databases with large language models to generate accurate and explainable answers across different question types (yes/no, factoid, list, and summary).
+
+## Main Components
+<a name='main-components'></a>
+
+- **Retriever**: Uses SentenceTransformers (`avsolatorio/GIST-large-Embedding-v0`) to generate embeddings. Retrieval is done via Weaviate (supports BM25, dense, and hybrid).
+- **Generator**: Utilizes LLMs to generate answers from retrieved documents (gemini-2.0-flash, gpt-4.1-mini)
+- **Indexing**: PubMed abstracts are split into sentence-level chunks using a sliding window, then indexed into Weaviate.
+- **Evaluation**: Custom evaluation scripts that compare system outputs with BioASQ ground truth (F1, Accuracy, ROUGE, BLEU).
+
 
 ## Usage
 <a name = 'usage'></a>
 
 ### 1. Clone the repository and navigate to the working directory
 ```
-git init
 git clone https://github.com/hddat2k4/BioASQ_UIT.git
 cd /d BioASQ
 ``` 
