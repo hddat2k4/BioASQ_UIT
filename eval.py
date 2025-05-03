@@ -222,7 +222,7 @@ def save_results_to_excel(result_dict, retrieval_mode, embed_model, llm_model, o
 
 
 if __name__ == "__main__":
-    retrieval_modes = ["dense", "hybrid", "bm25"]
+    retrieval_modes = ["bm25","dense", "hybrid"]
     model_n = model.embed_model_name
     llm = model.llm_model_name
     for method in retrieval_modes:
