@@ -8,7 +8,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 
 # Đường dẫn tới file JSON gốc (trong folder B)
-json_path = os.path.join(project_root, "data", "BioASQ-task13bPhaseB-testset1.json")
+json_path = os.path.join(project_root, "data", "question1.json")
 
 # Đường dẫn tới folder testcase (tự tạo nếu chưa có)
 output_dir = os.path.join(project_root, "testcase")
@@ -21,8 +21,13 @@ if not os.path.exists(json_path):
 with open(json_path, "r", encoding="utf-8") as f:
     data = json.load(f)
 
-# Truy cập danh sách câu hỏi
-questions_raw = data["questions"]
+# Nếu file là list thì giữ nguyên, nếu là dict chứa "questions" thì lấy ra
+if isinstance(data, dict) and "questions" in data:
+    questions_raw = data["questions"]
+elif isinstance(data, list):
+    questions_raw = data
+else:
+    raise ValueError("❌ Dữ liệu không đúng định dạng mong đợi (list hoặc dict có 'questions')")
 
 questions = []
 gold_answers = []
@@ -33,12 +38,11 @@ for item in questions_raw:
         "question": item["body"],
         "question_type": item["type"]
     })
-
     gold_answers.append(item)
 
 # Đường dẫn file output
-out_questions_path = os.path.join(output_dir, "questions_phaseB_testset1.json")
-out_answers_path = os.path.join(output_dir, "answers_phaseB_testset1.json")
+out_questions_path = os.path.join(output_dir, "questions1.json")
+out_answers_path = os.path.join(output_dir, "answers1.json")
 
 # Ghi ra file
 with open(out_questions_path, "w", encoding="utf-8") as f:

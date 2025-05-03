@@ -1,5 +1,4 @@
 langchain
-langchain-milvus
 langchain-weaviate
 langchain_google_genai
 nltk

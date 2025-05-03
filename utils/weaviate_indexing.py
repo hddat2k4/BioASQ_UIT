@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FOLDER_NAME = os.path.basename(BASE_DIR).lower()
 
 # Gán tên container
-container_name = f"{FOLDER_NAME}-weaviate-1"
-collection_name = "PubMedAbstract"
-SUB_BATCH_SIZE = 300
+container_name = "bioasq-weaviate-1"
+collection_name = "gist"  #"PubMedAbstract" #bgebase "Pubmedfull" #infloat
+SUB_BATCH_SIZE = 3000
 
 # --- Hàm kiểm tra Weaviate đã sẵn sàng sau khi restart ---
 def wait_for_weaviate_ready(max_wait_seconds=120):
@@ -50,9 +50,9 @@ client = weaviate.connect_to_local()
 collection = client.collections.get(collection_name)
 
 #939-941 
-for i in tqdm(range(939, 942), desc="Indexing files"):
-
-    file = f"embeddings_{i:04d}.pkl"
+for i in tqdm(range(922, 942), desc="Indexing files"):
+    input_dir = '../embeddings'
+    file = f"slide3_{i:04d}.pkl"
     path = os.path.join(input_dir, file)
 
     if not os.path.exists(path):
@@ -79,8 +79,8 @@ for i in tqdm(range(939, 942), desc="Indexing files"):
                         "page_content": obj["page_content"],
                         "pmid": obj["metadata"]["pmid"],
                         "title": obj["metadata"]["title"],
-                        "abstract": obj["metadata"]["abstract"],
-                        "chunk": obj["metadata"]["chunk"],
+                        "abstract_chunk": obj["metadata"]["abstract_chunk"],
+                        "chunk": obj["metadata"]["chunk_index"],
                     }
 
                     safe_uuid = generate_hashed_uuid(obj["vector"], obj["uuid"])
@@ -116,12 +116,12 @@ for i in tqdm(range(939, 942), desc="Indexing files"):
     print(f"Tổng đã xử lý: {success_count + fail_count}")
 
     # --- Restart container để giải phóng RAM ---
-    print("Stop container để giải phóng RAM...")
-    subprocess.run(["docker", "stop", container_name])
-    time.sleep(60)  # Đợi RAM được hệ thống giải phóng (quan trọng)
-    print("Start lại container...")
-    subprocess.run(["docker", "start", container_name])
-    print("✅ Container đã được khởi động lại.")
+    # print("Stop container để giải phóng RAM...")
+    # subprocess.run(["docker", "stop", container_name])
+    # time.sleep(60)  # Đợi RAM được hệ thống giải phóng (quan trọng)
+    # print("Start lại container...")
+    # subprocess.run(["docker", "start", container_name])
+    # print("✅ Container đã được khởi động lại.")
 
 # --- Kết thúc ---
 print("Đã hoàn tất indexing toàn bộ vectors vào Weaviate.")
