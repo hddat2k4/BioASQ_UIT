@@ -5,7 +5,7 @@ This repository provides the source code and a small batch of dataset samples us
 
 ## Table of Content
 - [Introduction](#intro)
-- [Target] (#target)
+- [Target](#target)
 - [Main Components](#main)
 
 - [Usage](#usage)
