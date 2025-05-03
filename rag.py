@@ -1,5 +1,5 @@
 # -- Main QA system --
-import torch, os, json, re
+import torch, os, json, re, getpass
 from rm3 import expand_query
 from prompt import get_prompt
 from dotenv import load_dotenv
@@ -8,30 +8,34 @@ from itertools import cycle, islice
 from sentence_transformers import SentenceTransformer
 from langchain.embeddings.base import Embeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.chat_models import init_chat_model
+
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.documents import Document
 
 load_dotenv()
 
-api_keys = os.getenv("GOOGLE_API_KEYS").split(",")
-api_key_iterator = cycle(api_keys)
+if not os.environ.get("OPENAI_API_KEY"):
+    os.environ["OPENAI_API_KEY"] = getpass.getpass("Enter your OpenAI API key: ")
+# api_keys = os.getenv("GOOGLE_API_KEYS").split(",")
+# api_key_iterator = cycle(api_keys)
 
-def get_next_api_key():
-    return next(api_key_iterator)
+# def get_next_api_key():
+#     return next(api_key_iterator)
 
-def get_llm_with_retry(model_name, max_tries=None):
-    max_tries = max_tries or len(api_keys)
-    for key in islice(api_key_iterator, max_tries):
-        try:
-            llm = ChatGoogleGenerativeAI(
-                model=model_name,
-                google_api_key=key,
-            )
-            return llm
-        except Exception as e:
-            print(f"[⚠️] API key {key[:6]}... bị lỗi: {e}")
-            continue
-    raise RuntimeError("❌ Tất cả API key đều bị lỗi hoặc bị giới hạn.")
+# def get_llm_with_retry(model_name, max_tries=None):
+#     max_tries = max_tries or len(api_keys)
+#     for key in islice(api_key_iterator, max_tries):
+#         try:
+#             llm = ChatGoogleGenerativeAI(
+#                 model=model_name,
+#                 google_api_key=key,
+#             )
+#             return llm
+#         except Exception as e:
+#             print(f"[⚠️] API key {key[:6]}... bị lỗi: {e}")
+#             continue
+#     raise RuntimeError("❌ Tất cả API key đều bị lỗi hoặc bị giới hạn.")
 
 # -- Embedding wrapper --
 class SentenceTransformerEmbeddings(Embeddings):
@@ -66,12 +70,62 @@ client = weaviate.connect_to_custom(
     additional_config=AdditionalConfig(
         timeout=Timeout(
             init=30,    # timeout khi khởi tạo kết nối
-            query=120,   # timeout cho các truy vấn (near_vector, hybrid, v.v.)
+            query=2000,   # timeout cho các truy vấn (near_vector, hybrid, v.v.)
             insert=120  # timeout khi insert / batch add
         )
     )
 )
-collection = client.collections.get("bgebase")   #Pubmedfull
+collection = client.collections.get("gist")   #Pubmedfull
+
+# def get_top_k_for_type(q_type: str) -> int:
+#     if q_type == "summary":
+#         return 10
+#     elif q_type == "list":
+#         return 7
+#     else:  # yesno, factoid
+#         return 5
+
+
+
+
+def retrieve_docs_sdk_multi(queries, mode="dense", top_k=10, alpha=None):
+    vectors = embeddings.model.encode(queries, show_progress_bar=True, convert_to_numpy=True).tolist()
+
+    if mode == "dense":
+        res = collection.query.batched_near_vector(
+            near_vectors=[{"vector": v} for v in vectors],
+            limit=top_k,
+            return_metadata=["score"],
+        )
+    elif mode == "hybrid":
+        if alpha is None:
+            alpha = 0.5
+        res = collection.query.batched_hybrid(
+            queries=queries,
+            vectors=[{"vector": v} for v in vectors],
+            alpha=alpha,
+            limit=top_k,
+            return_metadata=["score"],
+        )
+    else:
+        raise ValueError("Only 'dense' and 'hybrid' supported in batch mode.")
+
+    all_results = []
+    for objects in res.objects:
+        docs = []
+        for o in objects:
+            docs.append(Document(
+                page_content=o.properties.get("page_content", ""),
+                metadata={
+                    "pmid": o.properties.get("pmid"),
+                    "chunk": o.properties.get("chunk", 0),
+                    "score": getattr(o.metadata, "score", 0.0)
+                }
+            ))
+        all_results.append(docs)
+    return all_results
+
+
 
 # -- SDK Retrieval Function --
 def retrieve_docs_sdk(query, mode="bm25", top_k=10, alpha=None):
@@ -143,16 +197,18 @@ def clean_output(text):
 # -- Prompt chain creator --
 def get_prompt_chain(question_type):
     template = get_prompt(question_type)
-    llm = get_llm_with_retry(model.llm_model_name)
+    #llm = get_llm_with_retry(model.llm_model_name)
+    llm = init_chat_model("gpt-4.1-mini", model_provider="openai")
     return template | llm | StrOutputParser()
 
 # -- Main QA system --
-def qa_sys(item, retrieval_mode="dense", top_k=10, n_terms=7, lambda_param=0.6):
+def qa_sys(item, retrieval_mode="dense", n_terms=7, lambda_param=0.6):
     question = item["question"]
     q_type = item["question_type"]
     qid = item["question_id"]
+    # top_k = get_top_k_for_type(q_type)
+    top_k = 10
 
-    # --- Truy xuất tài liệu bằng SDK ---
     if retrieval_mode == "bm25":
         docs = retrieve_docs_sdk(question, mode="bm25", top_k=top_k)
         expanded_q = expand_query(question, docs, n_terms=n_terms, lambda_param=lambda_param)
@@ -164,7 +220,8 @@ def qa_sys(item, retrieval_mode="dense", top_k=10, n_terms=7, lambda_param=0.6):
     else:
         docs = retrieve_docs_sdk(question, mode="dense", top_k=top_k)
 
-    # --- Prompt context & snippets ---
+    # --- Limit snippet count by type ---
+    #snippet_limit = get_top_k_for_type(q_type)
     snippets, doc_id = extract_snippets(docs)
     context = "\n\n".join([doc.page_content for doc in docs])
 
@@ -198,11 +255,12 @@ def qa_sys(item, retrieval_mode="dense", top_k=10, n_terms=7, lambda_param=0.6):
         "ideal_answer": parsed.get("ideal_answer")
     }
 
+
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 import traceback
 
-def run_batch_qa(questions, retrieval_mode="dense", top_k=10, batch_size=5, max_retry=3):
+def run_batch_qa(questions, retrieval_mode="dense", batch_size=20, max_retry=3):
     results = []
     total = len(questions)
     
@@ -210,7 +268,7 @@ def run_batch_qa(questions, retrieval_mode="dense", top_k=10, batch_size=5, max_
         qid = item["question_id"]
         for attempt in range(max_retry):
             try:
-                answer = qa_sys(item, retrieval_mode=retrieval_mode, top_k=top_k)
+                answer = qa_sys(item, retrieval_mode=retrieval_mode)
                 print(f"✅ QID {qid} done.")
                 return answer
             except Exception as e:
@@ -239,4 +297,3 @@ def run_batch_qa(questions, retrieval_mode="dense", top_k=10, batch_size=5, max_
         time.sleep(1)  # nghỉ giữa các batch
 
     return results
-
